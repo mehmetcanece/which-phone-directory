@@ -1,0 +1,74 @@
+[
+  {
+    "brand": "Samsung",
+    "model": "Galaxy S21",
+    "screen_size": 6.2,
+    "battery": 4000,
+    "price": 15000,
+    "mcda_score": 91.3
+  },
+  {
+    "brand": "Samsung",
+    "model": "Galaxy A72",
+    "screen_size": 6.7,
+    "battery": 5000,
+    "price": 12000,
+    "mcda_score": 87.2
+  },
+  {
+    "brand": "Samsung",
+    "model": "Galaxy M52",
+    "screen_size": 6.7,
+    "battery": 5000,
+    "price": 9000,
+    "mcda_score": 84.5
+  },
+  {
+    "brand": "Apple",
+    "model": "iPhone 14 Pro Max",
+    "screen_size": 6.7,
+    "battery": 4323,
+    "price": 35000,
+    "mcda_score": 93.7
+  },
+  {
+    "brand": "Apple",
+    "model": "iPhone 13",
+    "screen_size": 6.1,
+    "battery": 3227,
+    "price": 28000,
+    "mcda_score": 89.1
+  },
+  {
+    "brand": "Apple",
+    "model": "iPhone SE",
+    "screen_size": 4.7,
+    "battery": 2018,
+    "price": 15000,
+    "mcda_score": 75.0
+  },
+  {
+    "brand": "Xiaomi",
+    "model": "Redmi Note 10",
+    "screen_size": 6.43,
+    "battery": 5000,
+    "price": 7000,
+    "mcda_score": 82.8
+  },
+  {
+    "brand": "Xiaomi",
+    "model": "Poco X3 Pro",
+    "screen_size": 6.67,
+    "battery": 5160,
+    "price": 8500,
+    "mcda_score": 85.6
+  },
+  {
+    "brand": "Xiaomi",
+    "model": "Mi 11 Lite",
+    "screen_size": 6.55,
+    "battery": 4250,
+    "price": 10000,
+    "mcda_score": 83.4
+  }
+]
