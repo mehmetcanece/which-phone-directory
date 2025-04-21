@@ -8,7 +8,7 @@ class Phone(BaseModel):
     battery_capacity: int
     ram_capacity: int
     internal_memory: int
-    screeen_size: float
+    screen_size: float
     cpu_benchmark: int
     avg_rating: float
     
