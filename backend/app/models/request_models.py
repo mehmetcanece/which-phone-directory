@@ -1,10 +1,8 @@
 from pydantic import BaseModel
-from typing import Optional, Tuple, List
-
+from typing import Optional, Tuple
 
 class PhoneFilterRequest(BaseModel):
     brand_name: Optional[str] = None
-    model: Optional[str] = None
     price: Optional[Tuple[int, int]] = None
     battery_capacity: Optional[Tuple[int, int]] = None
     ram_capacity: Optional[Tuple[int, int]] = None
