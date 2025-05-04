@@ -1,15 +1,22 @@
+import json
+from typing import List
+from app.models.phone_model import Phone
 from app.models.request_models import PhoneFilterRequest
 
-def filter_phones(filters: PhoneFilterRequest):
+def filter_phones(filters: PhoneFilterRequest) -> List[dict]:
     with open("app/data/phones.json") as f:
         data = json.load(f)
+
     phones = [Phone(**item) for item in data]
 
-    def in_range(val, rng): return not rng or (rng[0] <= val <= rng[1])
+    def in_range(value, range_tuple):
+        if not range_tuple:
+            return True
+        return range_tuple[0] <= value <= range_tuple[1]
 
     result = []
     for phone in phones:
-        if filters.brand_name and phone.brand_name != filters.brand_name:
+        if filters.brand_name and phone.brand_name.lower() != filters.brand_name.lower():
             continue
         if not in_range(phone.price, filters.price):
             continue
@@ -27,5 +34,28 @@ def filter_phones(filters: PhoneFilterRequest):
             continue
         result.append(phone)
 
-    sorted_result = sorted(result, key=lambda p: p.mcda_score or 0, reverse=True)
+    sorted_result = sorted(result, key=lambda p: p.ranking or 0, reverse=False)
     return [p.dict() for p in sorted_result[:5]]
+
+def get_filter_options():
+    with open("app/data/phones.json") as f:
+        data = json.load(f)
+
+    phones = [Phone(**item) for item in data]
+
+    def get_range(field):
+        values = [getattr(p, field) for p in phones]
+        return {"min": min(values), "max": max(values)}
+
+    brands = sorted(list({p.brand_name for p in phones}))
+
+    return {
+        "brand_names": brands,
+        "price": get_range("price"),
+        "battery_capacity": get_range("battery_capacity"),
+        "ram_capacity": get_range("ram_capacity"),
+        "internal_memory": get_range("internal_memory"),
+        "screen_size": get_range("screen_size"),
+        "cpu_benchmark": get_range("cpu_benchmark"),
+        "avg_rating": get_range("avg_rating")
+    }

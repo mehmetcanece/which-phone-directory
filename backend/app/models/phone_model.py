@@ -11,4 +11,4 @@ class Phone(BaseModel):
     screen_size: float
     cpu_benchmark: int
     avg_rating: float
-    mcda_score: Optional[float] = None
+    ranking: Optional[float] = None

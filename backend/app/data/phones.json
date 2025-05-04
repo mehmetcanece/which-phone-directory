@@ -2,6 +2,19 @@
   {
     "brand_name": "vivo",
     "model": "Vivo X Fold 3 Pro",
+    "price": 46999.0,
+    "battery_capacity": 5700.0,
+    "ram_capacity": 16,
+    "internal_memory": 512.0,
+    "screen_size": 8.03,
+    "cpu_benchmark": 11525.0,
+    "avg_rating": 9.0,
+    "ranking": 1
+  },
+
+  {
+    "brand_name": "vivo",
+    "model": "Vivo X Fold 3 Pro",
     "price": 50000.0,
     "battery_capacity": 5700.0,
     "ram_capacity": 16,
@@ -9,7 +22,7 @@
     "screen_size": 8.03,
     "cpu_benchmark": 11525.0,
     "avg_rating": 9.0,
-    "mcda_score": 2.0
+    "ranking": 2
   },
   {
     "brand_name": "asus",
@@ -21,7 +34,7 @@
     "screen_size": 6.78,
     "cpu_benchmark": 9362.0,
     "avg_rating": 8.7,
-    "mcda_score": 3.0
+    "ranking": 3
   },
   {
     "brand_name": "oppo",
@@ -33,7 +46,7 @@
     "screen_size": 6.74,
     "cpu_benchmark": 7374.0,
     "avg_rating": 8.6,
-    "mcda_score": 4.0
+    "ranking": 4
   },
   {
     "brand_name": "vivo",
@@ -45,7 +58,7 @@
     "screen_size": 6.78,
     "cpu_benchmark": 7855.0,
     "avg_rating": 7.7,
-    "mcda_score": 5.0
+    "ranking": 5
   },
   {
     "brand_name": "xiaomi",
@@ -57,7 +70,7 @@
     "screen_size": 6.67,
     "cpu_benchmark": 6330.0,
     "avg_rating": 8.0,
-    "mcda_score": 6.0
+    "ranking": 6
   },
   {
     "brand_name": "oppo",
@@ -69,7 +82,7 @@
     "screen_size": 6.74,
     "cpu_benchmark": 9362.0,
     "avg_rating": 8.8,
-    "mcda_score": 7.0
+    "ranking": 7
   },
   {
     "brand_name": "xiaomi",
@@ -81,7 +94,7 @@
     "screen_size": 6.73,
     "cpu_benchmark": 11525.0,
     "avg_rating": 9.0,
-    "mcda_score": 8.0
+    "ranking": 8
   },
   {
     "brand_name": "xiaomi",
@@ -93,7 +106,7 @@
     "screen_size": 6.67,
     "cpu_benchmark": 5754.0,
     "avg_rating": 8.0,
-    "mcda_score": 9.0
+    "ranking": 9
   },
   {
     "brand_name": "vivo",
@@ -105,7 +118,7 @@
     "screen_size": 6.78,
     "cpu_benchmark": 7855.0,
     "avg_rating": 8.4,
-    "mcda_score": 10.0
+    "ranking": 10
   },
   {
     "brand_name": "samsung",
@@ -117,7 +130,7 @@
     "screen_size": 6.8,
     "cpu_benchmark": 10110.0,
     "avg_rating": 8.5,
-    "mcda_score": 11.0
+    "ranking": 11
   },
   {
     "brand_name": "xiaomi",
@@ -129,7 +142,7 @@
     "screen_size": 8.03,
     "cpu_benchmark": 9112.0,
     "avg_rating": 9.0,
-    "mcda_score": 12.0
+    "ranking": 12
   },
   {
     "brand_name": "vivo",
@@ -141,7 +154,7 @@
     "screen_size": 6.58,
     "cpu_benchmark": 4562.0,
     "avg_rating": 8.0,
-    "mcda_score": 13.0
+    "ranking": 13
   },
   {
     "brand_name": "google",
@@ -153,7 +166,7 @@
     "screen_size": 6.7,
     "cpu_benchmark": 8133.0,
     "avg_rating": 8.0,
-    "mcda_score": 14.0
+    "ranking": 14
   },
   {
     "brand_name": "oppo",
@@ -165,7 +178,7 @@
     "screen_size": 6.82,
     "cpu_benchmark": 9362.0,
     "avg_rating": 8.7,
-    "mcda_score": 15.0
+    "ranking": 15
   },
   {
     "brand_name": "oppo",
@@ -177,7 +190,7 @@
     "screen_size": 6.7,
     "cpu_benchmark": 4243.0,
     "avg_rating": 8.7,
-    "mcda_score": 16.0
+    "ranking": 16
   },
   {
     "brand_name": "vivo",
@@ -189,7 +202,7 @@
     "screen_size": 6.68,
     "cpu_benchmark": 4061.0,
     "avg_rating": 9.0,
-    "mcda_score": 17.0
+    "ranking": 17
   },
   {
     "brand_name": "oppo",
@@ -201,7 +214,7 @@
     "screen_size": 6.7,
     "cpu_benchmark": 4557.0,
     "avg_rating": 8.4,
-    "mcda_score": 18.0
+    "ranking": 18
   },
   {
     "brand_name": "vivo",
@@ -213,7 +226,7 @@
     "screen_size": 6.67,
     "cpu_benchmark": 7374.0,
     "avg_rating": 7.7,
-    "mcda_score": 19.0
+    "ranking": 19
   },
   {
     "brand_name": "xiaomi",
@@ -225,7 +238,7 @@
     "screen_size": 6.73,
     "cpu_benchmark": 4061.0,
     "avg_rating": 7.9,
-    "mcda_score": 20.0
+    "ranking": 20
   },
   {
     "brand_name": "nokia",
@@ -237,7 +250,7 @@
     "screen_size": 6.51,
     "cpu_benchmark": 4889.0,
     "avg_rating": 8.7,
-    "mcda_score": 21.0
+    "ranking": 21
   },
   {
     "brand_name": "nokia",
@@ -249,7 +262,7 @@
     "screen_size": 6.51,
     "cpu_benchmark": 4889.0,
     "avg_rating": 0.0,
-    "mcda_score": 22.0
+    "ranking": 22
   },
   {
     "brand_name": "vivo",
@@ -261,7 +274,7 @@
     "screen_size": 8.03,
     "cpu_benchmark": 11789.0,
     "avg_rating": 8.0,
-    "mcda_score": 23.0
+    "ranking": 23
   },
   {
     "brand_name": "xiaomi",
@@ -273,7 +286,7 @@
     "screen_size": 6.67,
     "cpu_benchmark": 6330.0,
     "avg_rating": 8.0,
-    "mcda_score": 24.0
+    "ranking": 24
   },
   {
     "brand_name": "vivo",
@@ -285,7 +298,7 @@
     "screen_size": 6.67,
     "cpu_benchmark": 7855.0,
     "avg_rating": 7.0,
-    "mcda_score": 25.0
+    "ranking": 25
   },
   {
     "brand_name": "vivo",
@@ -297,7 +310,7 @@
     "screen_size": 6.78,
     "cpu_benchmark": 6028.0,
     "avg_rating": 8.6,
-    "mcda_score": 26.0
+    "ranking": 26
   },
   {
     "brand_name": "oppo",
@@ -309,7 +322,7 @@
     "screen_size": 6.74,
     "cpu_benchmark": 7878.0,
     "avg_rating": 8.9,
-    "mcda_score": 27.0
+    "ranking": 27
   },
   {
     "brand_name": "apple",
@@ -321,7 +334,7 @@
     "screen_size": 6.9,
     "cpu_benchmark": 12996.0,
     "avg_rating": 8.2,
-    "mcda_score": 28.0
+    "ranking": 28
   },
   {
     "brand_name": "vivo",
@@ -333,7 +346,7 @@
     "screen_size": 6.6,
     "cpu_benchmark": 9112.0,
     "avg_rating": 8.5,
-    "mcda_score": 29.0
+    "ranking": 29
   },
   {
     "brand_name": "oppo",
@@ -345,7 +358,7 @@
     "screen_size": 6.56,
     "cpu_benchmark": 4076.0,
     "avg_rating": 7.5,
-    "mcda_score": 30.0
+    "ranking": 30
   },
   {
     "brand_name": "nokia",
@@ -357,7 +370,7 @@
     "screen_size": 6.81,
     "cpu_benchmark": 5644.0,
     "avg_rating": 7.6,
-    "mcda_score": 31.0
+    "ranking": 31
   },
   {
     "brand_name": "vivo",
@@ -369,7 +382,7 @@
     "screen_size": 6.67,
     "cpu_benchmark": 4061.0,
     "avg_rating": 8.0,
-    "mcda_score": 32.0
+    "ranking": 32
   },
   {
     "brand_name": "vivo",
@@ -381,7 +394,7 @@
     "screen_size": 6.7,
     "cpu_benchmark": 7878.0,
     "avg_rating": 8.7,
-    "mcda_score": 33.0
+    "ranking": 33
   },
   {
     "brand_name": "vivo",
@@ -393,7 +406,7 @@
     "screen_size": 6.73,
     "cpu_benchmark": 7374.0,
     "avg_rating": 8.7,
-    "mcda_score": 34.0
+    "ranking": 34
   },
   {
     "brand_name": "samsung",
@@ -405,7 +418,7 @@
     "screen_size": 6.7,
     "cpu_benchmark": 9362.0,
     "avg_rating": 8.5,
-    "mcda_score": 35.0
+    "ranking": 35
   },
   {
     "brand_name": "xiaomi",
@@ -417,7 +430,7 @@
     "screen_size": 6.7,
     "cpu_benchmark": 7374.0,
     "avg_rating": 8.6,
-    "mcda_score": 36.0
+    "ranking": 36
   },
   {
     "brand_name": "xiaomi",
@@ -429,7 +442,7 @@
     "screen_size": 6.67,
     "cpu_benchmark": 6330.0,
     "avg_rating": 8.0,
-    "mcda_score": 37.0
+    "ranking": 37
   },
   {
     "brand_name": "xiaomi",
@@ -441,7 +454,7 @@
     "screen_size": 6.67,
     "cpu_benchmark": 4565.0,
     "avg_rating": 7.5,
-    "mcda_score": 38.0
+    "ranking": 38
   },
   {
     "brand_name": "xiaomi",
@@ -453,7 +466,7 @@
     "screen_size": 6.43,
     "cpu_benchmark": 11525.0,
     "avg_rating": 8.9,
-    "mcda_score": 39.0
+    "ranking": 39
   },
   {
     "brand_name": "xiaomi",
@@ -465,7 +478,7 @@
     "screen_size": 6.67,
     "cpu_benchmark": 4565.0,
     "avg_rating": 7.5,
-    "mcda_score": 40.0
+    "ranking": 40
   },
   {
     "brand_name": "xiaomi",
@@ -477,7 +490,7 @@
     "screen_size": 6.67,
     "cpu_benchmark": 5230.0,
     "avg_rating": 8.3,
-    "mcda_score": 41.0
+    "ranking": 41
   },
   {
     "brand_name": "xiaomi",
@@ -489,7 +502,7 @@
     "screen_size": 6.88,
     "cpu_benchmark": 2752.0,
     "avg_rating": 7.5,
-    "mcda_score": 42.0
+    "ranking": 42
   },
   {
     "brand_name": "xiaomi",
@@ -501,7 +514,7 @@
     "screen_size": 6.67,
     "cpu_benchmark": 7424.0,
     "avg_rating": 8.0,
-    "mcda_score": 43.0
+    "ranking": 43
   },
   {
     "brand_name": "samsung",
@@ -513,7 +526,7 @@
     "screen_size": 6.6,
     "cpu_benchmark": 9362.0,
     "avg_rating": 8.9,
-    "mcda_score": 44.0
+    "ranking": 44
   },
   {
     "brand_name": "xiaomi",
@@ -525,7 +538,7 @@
     "screen_size": 6.67,
     "cpu_benchmark": 7374.0,
     "avg_rating": 8.7,
-    "mcda_score": 45.0
+    "ranking": 45
   },
   {
     "brand_name": "apple",
@@ -537,7 +550,7 @@
     "screen_size": 6.7,
     "cpu_benchmark": 12442.0,
     "avg_rating": 7.9,
-    "mcda_score": 46.0
+    "ranking": 46
   },
   {
     "brand_name": "vivo",
@@ -549,7 +562,7 @@
     "screen_size": 6.78,
     "cpu_benchmark": 5832.0,
     "avg_rating": 7.5,
-    "mcda_score": 47.0
+    "ranking": 47
   },
   {
     "brand_name": "vivo",
@@ -561,7 +574,7 @@
     "screen_size": 6.78,
     "cpu_benchmark": 7855.0,
     "avg_rating": 9.0,
-    "mcda_score": 48.0
+    "ranking": 48
   },
   {
     "brand_name": "vivo",
@@ -573,7 +586,7 @@
     "screen_size": 6.78,
     "cpu_benchmark": 6028.0,
     "avg_rating": 7.2,
-    "mcda_score": 49.0
+    "ranking": 49
   },
   {
     "brand_name": "motorola",
@@ -585,7 +598,7 @@
     "screen_size": 6.5,
     "cpu_benchmark": 1896.0,
     "avg_rating": 7.7,
-    "mcda_score": 50.0
+    "ranking": 50
   },
   {
     "brand_name": "apple",
@@ -597,7 +610,7 @@
     "screen_size": 6.7,
     "cpu_benchmark": 12246.0,
     "avg_rating": 7.9,
-    "mcda_score": 51.0
+    "ranking": 51
   },
   {
     "brand_name": "vivo",
@@ -609,7 +622,7 @@
     "screen_size": 6.78,
     "cpu_benchmark": 7855.0,
     "avg_rating": 8.2,
-    "mcda_score": 52.0
+    "ranking": 52
   },
   {
     "brand_name": "motorola",
@@ -621,7 +634,7 @@
     "screen_size": 6.5,
     "cpu_benchmark": 4838.0,
     "avg_rating": 8.5,
-    "mcda_score": 53.0
+    "ranking": 53
   },
   {
     "brand_name": "motorola",
@@ -633,7 +646,7 @@
     "screen_size": 6.8,
     "cpu_benchmark": 6074.0,
     "avg_rating": 8.0,
-    "mcda_score": 54.0
+    "ranking": 54
   },
   {
     "brand_name": "vivo",
@@ -645,7 +658,7 @@
     "screen_size": 6.56,
     "cpu_benchmark": 4686.0,
     "avg_rating": 8.3,
-    "mcda_score": 55.0
+    "ranking": 55
   },
   {
     "brand_name": "xiaomi",
@@ -657,7 +670,7 @@
     "screen_size": 6.67,
     "cpu_benchmark": 5721.0,
     "avg_rating": 7.8,
-    "mcda_score": 56.0
+    "ranking": 56
   },
   {
     "brand_name": "oppo",
@@ -669,7 +682,7 @@
     "screen_size": 6.72,
     "cpu_benchmark": 4182.0,
     "avg_rating": 8.7,
-    "mcda_score": 57.0
+    "ranking": 57
   },
   {
     "brand_name": "vivo",
@@ -681,7 +694,7 @@
     "screen_size": 6.58,
     "cpu_benchmark": 4076.0,
     "avg_rating": 8.0,
-    "mcda_score": 58.0
+    "ranking": 58
   },
   {
     "brand_name": "motorola",
@@ -693,7 +706,7 @@
     "screen_size": 6.67,
     "cpu_benchmark": 9112.0,
     "avg_rating": 8.9,
-    "mcda_score": 59.0
+    "ranking": 59
   },
   {
     "brand_name": "xiaomi",
@@ -705,7 +718,7 @@
     "screen_size": 6.79,
     "cpu_benchmark": 4061.0,
     "avg_rating": 8.5,
-    "mcda_score": 60.0
+    "ranking": 60
   },
   {
     "brand_name": "oppo",
@@ -717,7 +730,7 @@
     "screen_size": 6.56,
     "cpu_benchmark": 4076.0,
     "avg_rating": 7.9,
-    "mcda_score": 61.0
+    "ranking": 61
   },
   {
     "brand_name": "vivo",
@@ -729,7 +742,7 @@
     "screen_size": 6.64,
     "cpu_benchmark": 4076.0,
     "avg_rating": 8.2,
-    "mcda_score": 62.0
+    "ranking": 62
   },
   {
     "brand_name": "vivo",
@@ -741,7 +754,7 @@
     "screen_size": 6.64,
     "cpu_benchmark": 2752.0,
     "avg_rating": 8.0,
-    "mcda_score": 63.0
+    "ranking": 63
   },
   {
     "brand_name": "vivo",
@@ -753,7 +766,7 @@
     "screen_size": 6.64,
     "cpu_benchmark": 3781.0,
     "avg_rating": 8.0,
-    "mcda_score": 64.0
+    "ranking": 64
   },
   {
     "brand_name": "motorola",
@@ -765,7 +778,7 @@
     "screen_size": 6.5,
     "cpu_benchmark": 2752.0,
     "avg_rating": 7.5,
-    "mcda_score": 65.0
+    "ranking": 65
   },
   {
     "brand_name": "xiaomi",
@@ -777,7 +790,7 @@
     "screen_size": 6.74,
     "cpu_benchmark": 2752.0,
     "avg_rating": 7.7,
-    "mcda_score": 66.0
+    "ranking": 66
   },
   {
     "brand_name": "google",
@@ -789,7 +802,7 @@
     "screen_size": 6.2,
     "cpu_benchmark": 8133.0,
     "avg_rating": 7.5,
-    "mcda_score": 67.0
+    "ranking": 67
   },
   {
     "brand_name": "motorola",
@@ -801,7 +814,7 @@
     "screen_size": 6.6,
     "cpu_benchmark": 7290.0,
     "avg_rating": 8.9,
-    "mcda_score": 68.0
+    "ranking": 68
   },
   {
     "brand_name": "xiaomi",
@@ -813,7 +826,7 @@
     "screen_size": 6.67,
     "cpu_benchmark": 7855.0,
     "avg_rating": 9.0,
-    "mcda_score": 69.0
+    "ranking": 69
   },
   {
     "brand_name": "vivo",
@@ -825,7 +838,7 @@
     "screen_size": 6.7,
     "cpu_benchmark": 2431.0,
     "avg_rating": 8.4,
-    "mcda_score": 70.0
+    "ranking": 70
   },
   {
     "brand_name": "vivo",
@@ -837,7 +850,7 @@
     "screen_size": 6.67,
     "cpu_benchmark": 3423.0,
     "avg_rating": 8.4,
-    "mcda_score": 71.0
+    "ranking": 71
   },
   {
     "brand_name": "samsung",
@@ -849,7 +862,7 @@
     "screen_size": 6.5,
     "cpu_benchmark": 4522.0,
     "avg_rating": 8.4,
-    "mcda_score": 72.0
+    "ranking": 72
   },
   {
     "brand_name": "motorola",
@@ -861,7 +874,7 @@
     "screen_size": 6.55,
     "cpu_benchmark": 9112.0,
     "avg_rating": 8.6,
-    "mcda_score": 73.0
+    "ranking": 73
   },
   {
     "brand_name": "apple",
@@ -873,7 +886,7 @@
     "screen_size": 6.7,
     "cpu_benchmark": 11205.0,
     "avg_rating": 7.5,
-    "mcda_score": 74.0
+    "ranking": 74
   },
   {
     "brand_name": "motorola",
@@ -885,7 +898,7 @@
     "screen_size": 6.55,
     "cpu_benchmark": 9112.0,
     "avg_rating": 8.7,
-    "mcda_score": 75.0
+    "ranking": 75
   },
   {
     "brand_name": "vivo",
@@ -897,7 +910,7 @@
     "screen_size": 6.62,
     "cpu_benchmark": 3219.0,
     "avg_rating": 8.5,
-    "mcda_score": 76.0
+    "ranking": 76
   },
   {
     "brand_name": "apple",
@@ -909,7 +922,7 @@
     "screen_size": 6.1,
     "cpu_benchmark": 12246.0,
     "avg_rating": 7.5,
-    "mcda_score": 77.0
+    "ranking": 77
   },
   {
     "brand_name": "vivo",
@@ -921,7 +934,7 @@
     "screen_size": 6.67,
     "cpu_benchmark": 3958.0,
     "avg_rating": 8.0,
-    "mcda_score": 78.0
+    "ranking": 78
   },
   {
     "brand_name": "vivo",
@@ -933,7 +946,7 @@
     "screen_size": 6.58,
     "cpu_benchmark": 4076.0,
     "avg_rating": 7.8,
-    "mcda_score": 79.0
+    "ranking": 79
   },
   {
     "brand_name": "xiaomi",
@@ -945,7 +958,7 @@
     "screen_size": 6.79,
     "cpu_benchmark": 2754.0,
     "avg_rating": 8.3,
-    "mcda_score": 80.0
+    "ranking": 80
   },
   {
     "brand_name": "vivo",
@@ -957,7 +970,7 @@
     "screen_size": 6.58,
     "cpu_benchmark": 4559.0,
     "avg_rating": 7.7,
-    "mcda_score": 81.0
+    "ranking": 81
   },
   {
     "brand_name": "xiaomi",
@@ -969,7 +982,7 @@
     "screen_size": 6.73,
     "cpu_benchmark": 7290.0,
     "avg_rating": 8.6,
-    "mcda_score": 82.0
+    "ranking": 82
   },
   {
     "brand_name": "apple",
@@ -981,7 +994,7 @@
     "screen_size": 6.27,
     "cpu_benchmark": 12996.0,
     "avg_rating": 8.1,
-    "mcda_score": 83.0
+    "ranking": 83
   },
   {
     "brand_name": "xiaomi",
@@ -993,7 +1006,7 @@
     "screen_size": 6.67,
     "cpu_benchmark": 3781.0,
     "avg_rating": 7.5,
-    "mcda_score": 84.0
+    "ranking": 84
   },
   {
     "brand_name": "samsung",
@@ -1005,7 +1018,7 @@
     "screen_size": 6.7,
     "cpu_benchmark": 2752.0,
     "avg_rating": 6.3,
-    "mcda_score": 85.0
+    "ranking": 85
   },
   {
     "brand_name": "xiaomi",
@@ -1017,7 +1030,7 @@
     "screen_size": 6.67,
     "cpu_benchmark": 3853.0,
     "avg_rating": 8.1,
-    "mcda_score": 86.0
+    "ranking": 86
   },
   {
     "brand_name": "oppo",
@@ -1029,7 +1042,7 @@
     "screen_size": 6.72,
     "cpu_benchmark": 4182.0,
     "avg_rating": 8.2,
-    "mcda_score": 87.0
+    "ranking": 87
   },
   {
     "brand_name": "samsung",
@@ -1041,7 +1054,7 @@
     "screen_size": 6.6,
     "cpu_benchmark": 4120.0,
     "avg_rating": 7.5,
-    "mcda_score": 88.0
+    "ranking": 88
   },
   {
     "brand_name": "xiaomi",
@@ -1053,7 +1066,7 @@
     "screen_size": 6.55,
     "cpu_benchmark": 5502.0,
     "avg_rating": 5.6,
-    "mcda_score": 89.0
+    "ranking": 89
   },
   {
     "brand_name": "vivo",
@@ -1065,7 +1078,7 @@
     "screen_size": 6.44,
     "cpu_benchmark": 4686.0,
     "avg_rating": 7.6,
-    "mcda_score": 90.0
+    "ranking": 90
   },
   {
     "brand_name": "apple",
@@ -1077,7 +1090,7 @@
     "screen_size": 6.1,
     "cpu_benchmark": 12442.0,
     "avg_rating": 8.0,
-    "mcda_score": 91.0
+    "ranking": 91
   },
   {
     "brand_name": "xiaomi",
@@ -1089,7 +1102,7 @@
     "screen_size": 6.71,
     "cpu_benchmark": 1638.0,
     "avg_rating": 7.5,
-    "mcda_score": 92.0
+    "ranking": 92
   },
   {
     "brand_name": "samsung",
@@ -1101,7 +1114,7 @@
     "screen_size": 6.4,
     "cpu_benchmark": 5023.0,
     "avg_rating": 7.6,
-    "mcda_score": 93.0
+    "ranking": 93
   },
   {
     "brand_name": "samsung",
@@ -1113,7 +1126,7 @@
     "screen_size": 6.5,
     "cpu_benchmark": 4255.0,
     "avg_rating": 6.3,
-    "mcda_score": 94.0
+    "ranking": 94
   },
   {
     "brand_name": "xiaomi",
@@ -1125,7 +1138,7 @@
     "screen_size": 6.52,
     "cpu_benchmark": 1638.0,
     "avg_rating": 7.5,
-    "mcda_score": 95.0
+    "ranking": 95
   },
   {
     "brand_name": "samsung",
@@ -1137,7 +1150,7 @@
     "screen_size": 6.5,
     "cpu_benchmark": 6103.0,
     "avg_rating": 6.0,
-    "mcda_score": 96.0
+    "ranking": 96
   },
   {
     "brand_name": "vivo",
@@ -1149,7 +1162,7 @@
     "screen_size": 6.38,
     "cpu_benchmark": 4833.0,
     "avg_rating": 7.0,
-    "mcda_score": 97.0
+    "ranking": 97
   },
   {
     "brand_name": "xiaomi",
@@ -1161,7 +1174,7 @@
     "screen_size": 6.52,
     "cpu_benchmark": 1638.0,
     "avg_rating": 7.6,
-    "mcda_score": 98.0
+    "ranking": 98
   },
   {
     "brand_name": "samsung",
@@ -1173,7 +1186,7 @@
     "screen_size": 6.1,
     "cpu_benchmark": 9362.0,
     "avg_rating": 8.8,
-    "mcda_score": 99.0
+    "ranking": 99
   },
   {
     "brand_name": "samsung",
@@ -1185,7 +1198,7 @@
     "screen_size": 6.4,
     "cpu_benchmark": 4255.0,
     "avg_rating": 7.7,
-    "mcda_score": 100.0
+    "ranking": 100
   },
   {
     "brand_name": "motorola",
@@ -1197,7 +1210,7 @@
     "screen_size": 6.5,
     "cpu_benchmark": 2555.0,
     "avg_rating": 6.5,
-    "mcda_score": 101.0
+    "ranking": 101
   },
   {
     "brand_name": "apple",
@@ -1209,7 +1222,7 @@
     "screen_size": 6.1,
     "cpu_benchmark": 11205.0,
     "avg_rating": 7.2,
-    "mcda_score": 102.0
+    "ranking": 102
   },
   {
     "brand_name": "samsung",
@@ -1221,7 +1234,7 @@
     "screen_size": 6.4,
     "cpu_benchmark": 5783.0,
     "avg_rating": 7.7,
-    "mcda_score": 103.0
+    "ranking": 103
   },
   {
     "brand_name": "google",
@@ -1233,6 +1246,6 @@
     "screen_size": 6.1,
     "cpu_benchmark": 7380.0,
     "avg_rating": 6.9,
-    "mcda_score": 104.0
+    "ranking": 104
   }
 ]
