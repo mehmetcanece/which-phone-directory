@@ -10,18 +10,33 @@ import {
      InputLabel,
      Select,
      MenuItem,
+     Checkbox,
+     FormControlLabel
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 function CriteriaPage(){
     const[ram, setRam] = React.useState('');
     const[internal_memory, setInternalMemory] = React.useState('');
-    const[screen_quality,setScreenQuality] = React.useState('');
+    const[screenSize,setScreenSize] = React.useState(6.0);
     const[camera_quality,setCameraQuality] = React.useState('');
     const[maxPrice,setMaxPrice] = React.useState(10000);
     const[minRating,setMinRating] = React.useState(7);
     const[minCpu,setMinCpu] = React.useState(3000);
     const[minBattery,setMinBattery] = React.useState(3000);
+    const[maxWeight,setMaxWeight] = React.useState(170);
+
+    const[useMaxPrice, setUseMaxPrice] = React.useState(true);
+    const[useMinRating, setUseMinRating] = React.useState(true);
+    const[useMinCpu, setUseMinCpu] = React.useState(true);
+    const[useMinBattery,setUseMinBattery] = React.useState(true);
+    const[useRam,setUseRam] = React.useState(true);
+    const[useInternalMemory,setUseInternalMemory] = React.useState(true);
+    const[useScreenSize,setUseScreenSize] = React.useState(true);
+    const[useMaxWeight,setUseMaxWeight] = React.useState(true);
+    const[useCameraQuality,setUseCameraQuality] = React.useState(true);
+
+
 
 
     const navigate = useNavigate();
@@ -33,9 +48,6 @@ const handleRamChange= (event) => {
 const handleInternalMemoryChange= (event) => {
     setInternalMemory(event.target.value);
 };
-const handleScreenQualityChange= (event) => {
-    setScreenQuality(event.target.value);
-}; 
 const handleCameraQualityChange= (event) => {
     setCameraQuality(event.target.value);
 };    
@@ -44,12 +56,13 @@ const handleSubmit = () => {
     const criteria = {
         ram,
         internal_memory,
-        screen_quality,
         camera_quality,
         max_price : maxPrice,
         min_rating : minRating,
         min_cpu : minCpu,
         min_battery : minBattery,
+        screen_size : screenSize,
+        max_weight :maxWeight,
 
     };
     navigate('/results', {state: criteria});
@@ -137,21 +150,11 @@ const handleSubmit = () => {
             <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
                 <Typography gutterBottom>Minimum Screen Size (inches)</Typography>
-                <Slider defaultValue={6.0} min={5.0} max={7.5} step={0.1} valueLabelDisplay="auto"/>
+                <Slider value={screenSize} onChange={(e,newValue) => setScreenSize(newValue)} min={5.0} max={7.5} step={0.1} valueLabelDisplay="auto"/>
             </Grid>
             <Grid item xs={12} sm={6}>
-                <FormControl fullWidth sx={{minWidth:200}}>
-                    <InputLabel id="screen-quality-select-label">Screen Quality</InputLabel>
-                    <Select
-                    labelId='screen-quality-select-label'
-                    id='screen-quality-select-label'
-                    value={screen_quality}
-                    label="Screen Quality"
-                    onChange={handleScreenQualityChange}>
-                        <MenuItem value={"1080p"}>1080p</MenuItem>
-                        <MenuItem value={"4K"}>4K</MenuItem>
-                    </Select>
-                </FormControl>
+                <Typography gutterBottom>Max Weight (gr)</Typography>
+                <Slider value={maxWeight} onChange={(e,newValue) => setMaxWeight(newValue)} min={150} max={300} step={1} valueLabelDisplay="auto"/>
             </Grid>
             </Grid>
 
