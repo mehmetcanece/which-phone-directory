@@ -9,6 +9,8 @@ import {
   InputLabel,
   Select,
   MenuItem,
+  FormControlLabel,
+  Checkbox,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
@@ -23,6 +25,16 @@ function CriteriaPage() {
   const [minBattery, setMinBattery] = useState(3000);
   const [maxWeight, setMaxWeight] = useState(170);
   const [filterOptions, setFilterOptions] = useState(null);
+
+  const[useMaxPrice, setUseMaxPrice] = React.useState(false);
+  const[useMinRating, setUseMinRating] = React.useState(false);
+  const[useMinCpu, setUseMinCpu] = React.useState(false);
+  const[useMinBattery,setUseMinBattery] = React.useState(false);
+  const[useRam,setUseRam] = React.useState(false);
+  const[useInternalMemory,setUseInternalMemory] = React.useState(false);
+  const[useScreenSize,setUseScreenSize] = React.useState(false);
+  const[useMaxWeight,setUseMaxWeight] = React.useState(false);
+  const[useCameraQuality,setUseCameraQuality] = React.useState(false);
 
   const navigate = useNavigate();
 
@@ -73,16 +85,19 @@ function CriteriaPage() {
 
   return (
     <Box p={3}>
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" gutterBottom textAlign="center">
         Enter Your Preferred Phone Criteria
       </Typography>
 
       {/* Performance */}
-      <Typography variant="h6" sx={{ mt: 3 }}>
+      <Typography variant="h5" sx={{ mt: 3 }}>
         Performance
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
+            <FormControlLabel
+            control={<Checkbox checked={useMaxPrice} onChange={(e) => setUseMaxPrice(e.target.checked)} />}
+             />
           <Typography gutterBottom>Maximum Price (₺)</Typography>
           <Slider
             value={maxPrice}
@@ -94,6 +109,10 @@ function CriteriaPage() {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
+            <FormControlLabel
+            control={<Checkbox checked={useMinRating} onChange={(e) => setUseMinRating(e.target.checked)} />}
+            />
+            
           <Typography gutterBottom>Minimum Average Rating</Typography>
           <Slider
             value={minRating}
@@ -104,7 +123,12 @@ function CriteriaPage() {
             valueLabelDisplay="auto"
           />
         </Grid>
+        </Grid>
+        <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
+            <FormControlLabel
+            control={<Checkbox checked={useMinCpu} onChange={(e) => setUseMinCpu(e.target.checked)} />}
+            />
           <Typography gutterBottom>Minimum CPU Benchmark</Typography>
           <Slider
             value={minCpu}
@@ -116,6 +140,9 @@ function CriteriaPage() {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
+            <FormControlLabel
+            control={<Checkbox checked={useMinBattery} onChange={(e) => setUseMinBattery(e.target.checked)} />}
+            />
           <Typography gutterBottom>Minimum Battery Capacity (mAh)</Typography>
           <Slider
             value={minBattery}
@@ -126,15 +153,19 @@ function CriteriaPage() {
             valueLabelDisplay="auto"
           />
         </Grid>
-      </Grid>
+        </Grid>
+      
 
       {/* Storage */}
-      <Typography variant="h6" sx={{ mt: 4 }}>
+      <Typography variant="h5" sx={{ mt: 4 }}>
         Storage
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
-          <FormControl fullWidth sx={{ mb: 2 }}>
+            <FormControlLabel
+            control={<Checkbox checked={useRam} onChange={(e) => setUseRam(e.target.checked)} />}
+            />
+          <FormControl fullWidth sx={{ minWidth:200, mb: 2 }}>
             <InputLabel id="ram-select-label">RAM (GB)</InputLabel>
             <Select
               labelId="ram-select-label"
@@ -152,7 +183,10 @@ function CriteriaPage() {
         </Grid>
 
         <Grid item xs={12} sm={6}>
-          <FormControl fullWidth>
+            <FormControlLabel
+            control={<Checkbox checked={useInternalMemory} onChange={(e) => setUseInternalMemory(e.target.checked)} />}
+            />
+          <FormControl fullWidth sx={{minWidth:200}}>
             <InputLabel id="memory-select-label">
               Internal Memory (GB)
             </InputLabel>
@@ -173,11 +207,14 @@ function CriteriaPage() {
       </Grid>
 
       {/* Display */}
-      <Typography variant="h6" sx={{ mt: 4 }}>
+      <Typography variant="h5" sx={{ mt: 4 }}>
         Display
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
+            <FormControlLabel
+            control={<Checkbox checked={useScreenSize} onChange={(e) => setUseScreenSize(e.target.checked)} />}
+            />
           <Typography gutterBottom>Minimum Screen Size (inches)</Typography>
           <Slider
             value={screenSize}
@@ -189,6 +226,9 @@ function CriteriaPage() {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
+            <FormControlLabel
+            control={<Checkbox checked={useMaxWeight} onChange={(e) => setUseMaxWeight(e.target.checked)} />}
+            />
           <Typography gutterBottom>Max Weight (gr)</Typography>
           <Slider
             value={maxWeight}
@@ -202,12 +242,15 @@ function CriteriaPage() {
       </Grid>
 
       {/* Camera */}
-      <Typography variant="h6" sx={{ mt: 4 }}>
+      <Typography variant="h5" sx={{ mt: 4 }}>
         Camera
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
-          <FormControl fullWidth sx={{ mb: 4 }}>
+            <FormControlLabel
+            control={<Checkbox checked={useCameraQuality} onChange={(e) => setUseCameraQuality(e.target.checked)} />}
+            />
+          <FormControl fullWidth sx={{ minWidth:300, mb: 4 }}>
             <InputLabel id="camera-select-label">
               Camera Quality (MP)
             </InputLabel>
