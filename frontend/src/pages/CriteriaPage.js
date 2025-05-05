@@ -42,14 +42,14 @@ function CriteriaPage() {
     const criteria = {
       brand_name: null,
       price: [0, maxPrice],
-      battery_capacity: [minBattery, filterOptions?.battery_range?.[1] || 6000],
-      ram_capacity: ram ? [parseInt(ram), parseInt(ram)] : null,
-      internal_memory: internalMemory
-        ? [parseInt(internalMemory), parseInt(internalMemory)]
-        : null,
-      screen_size: [screenSize, filterOptions?.screen_size_range?.[1] || 7.5],
-      cpu_benchmark: [minCpu, filterOptions?.cpu_benchmark_range?.[1] || 11000],
-      avg_rating: [minRating, filterOptions?.avg_rating_range?.[1] || 10],
+      battery_capacity: [minBattery, 6000],
+      ram_capacity: ram ? [ram, ram] : null,
+      internal_memory: internalMemory ? [internalMemory, internalMemory] : null,
+      screen_size: [screenSize, 7.5],
+      cpu_benchmark: [minCpu, 11000],
+      avg_rating: [minRating, 10],
+      camera_quality: cameraQuality ? [cameraQuality, 108] : null,
+      weight: maxWeight ? [0, maxWeight] : null,
     };
 
     try {
@@ -87,8 +87,8 @@ function CriteriaPage() {
           <Slider
             value={maxPrice}
             onChange={(e, val) => setMaxPrice(val)}
-            min={filterOptions?.price_range?.[0] || 1000}
-            max={filterOptions?.price_range?.[1] || 100000}
+            min={filterOptions?.price_range?.min || 1000}
+            max={filterOptions?.price_range?.max || 100000}
             step={1000}
             valueLabelDisplay="auto"
           />
@@ -98,8 +98,8 @@ function CriteriaPage() {
           <Slider
             value={minRating}
             onChange={(e, val) => setMinRating(val)}
-            min={filterOptions?.avg_rating_range?.[0] || 1}
-            max={filterOptions?.avg_rating_range?.[1] || 10}
+            min={filterOptions?.avg_rating_range?.min || 1}
+            max={filterOptions?.avg_rating_range?.max || 10}
             step={0.1}
             valueLabelDisplay="auto"
           />
@@ -109,8 +109,8 @@ function CriteriaPage() {
           <Slider
             value={minCpu}
             onChange={(e, val) => setMinCpu(val)}
-            min={filterOptions?.cpu_benchmark_range?.[0] || 1000}
-            max={filterOptions?.cpu_benchmark_range?.[1] || 11000}
+            min={filterOptions?.cpu_benchmark_range?.min || 1000}
+            max={filterOptions?.cpu_benchmark_range?.max || 11000}
             step={500}
             valueLabelDisplay="auto"
           />
@@ -120,8 +120,8 @@ function CriteriaPage() {
           <Slider
             value={minBattery}
             onChange={(e, val) => setMinBattery(val)}
-            min={filterOptions?.battery_range?.[0] || 2000}
-            max={filterOptions?.battery_range?.[1] || 6000}
+            min={filterOptions?.battery_range?.min || 2000}
+            max={filterOptions?.battery_range?.max || 6000}
             step={100}
             valueLabelDisplay="auto"
           />
@@ -135,11 +135,12 @@ function CriteriaPage() {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
           <FormControl fullWidth sx={{ mb: 2 }}>
-            <InputLabel>RAM (GB)</InputLabel>
+            <InputLabel id="ram-select-label">RAM (GB)</InputLabel>
             <Select
+              labelId="ram-select-label"
               value={ram}
-              onChange={(e) => setRam(e.target.value)}
               label="RAM (GB)"
+              onChange={(e) => setRam(Number(e.target.value))}
             >
               {filterOptions?.ram_options?.map((option) => (
                 <MenuItem key={option} value={option}>
@@ -152,11 +153,14 @@ function CriteriaPage() {
 
         <Grid item xs={12} sm={6}>
           <FormControl fullWidth>
-            <InputLabel>Internal Memory (GB)</InputLabel>
+            <InputLabel id="memory-select-label">
+              Internal Memory (GB)
+            </InputLabel>
             <Select
+              labelId="memory-select-label"
               value={internalMemory}
-              onChange={(e) => setInternalMemory(e.target.value)}
               label="Internal Memory (GB)"
+              onChange={(e) => setInternalMemory(Number(e.target.value))}
             >
               {filterOptions?.internal_memory_options?.map((option) => (
                 <MenuItem key={option} value={option}>
@@ -178,8 +182,8 @@ function CriteriaPage() {
           <Slider
             value={screenSize}
             onChange={(e, val) => setScreenSize(val)}
-            min={filterOptions?.screen_size_range?.[0] || 5.0}
-            max={filterOptions?.screen_size_range?.[1] || 7.5}
+            min={filterOptions?.screen_size_range?.min || 5.0}
+            max={filterOptions?.screen_size_range?.max || 7.5}
             step={0.1}
             valueLabelDisplay="auto"
           />
@@ -189,8 +193,8 @@ function CriteriaPage() {
           <Slider
             value={maxWeight}
             onChange={(e, val) => setMaxWeight(val)}
-            min={150}
-            max={300}
+            min={filterOptions?.weight_range?.min || 150}
+            max={filterOptions?.weight_range?.max || 300}
             step={1}
             valueLabelDisplay="auto"
           />
@@ -204,13 +208,16 @@ function CriteriaPage() {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
           <FormControl fullWidth sx={{ mb: 4 }}>
-            <InputLabel>Camera Quality (MP)</InputLabel>
+            <InputLabel id="camera-select-label">
+              Camera Quality (MP)
+            </InputLabel>
             <Select
+              labelId="camera-select-label"
               value={cameraQuality}
-              onChange={(e) => setCameraQuality(e.target.value)}
               label="Camera Quality (MP)"
+              onChange={(e) => setCameraQuality(Number(e.target.value))}
             >
-              {[12, 48, 64, 108].map((mp) => (
+              {filterOptions?.camera_quality_options?.map((mp) => (
                 <MenuItem key={mp} value={mp}>
                   {mp} MP
                 </MenuItem>
