@@ -10,3 +10,5 @@ class PhoneFilterRequest(BaseModel):
     screen_size: Optional[Tuple[float, float]] = None
     cpu_benchmark: Optional[Tuple[int, int]] = None
     avg_rating: Optional[Tuple[float, float]] = None
+    camera_quality: Optional[Tuple[int, int]] = None
+    weight: Optional[Tuple[int, int]] = None

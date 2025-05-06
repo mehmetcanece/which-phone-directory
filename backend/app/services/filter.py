@@ -32,6 +32,10 @@ def filter_phones(filters: PhoneFilterRequest) -> List[dict]:
             continue
         if not in_range(phone.avg_rating, filters.avg_rating):
             continue
+        if not in_range(phone.camera_quality, filters.camera_quality):
+            continue
+        if not in_range(phone.weight, filters.weight):
+            continue
         result.append(phone)
 
     sorted_result = sorted(result, key=lambda p: p.ranking or 0, reverse=False)
@@ -47,15 +51,20 @@ def get_filter_options():
         values = [getattr(p, field) for p in phones]
         return {"min": min(values), "max": max(values)}
 
+    def get_unique(field):
+        return sorted(list({getattr(p, field) for p in phones}))
+
     brands = sorted(list({p.brand_name for p in phones}))
 
     return {
         "brand_names": brands,
-        "price": get_range("price"),
-        "battery_capacity": get_range("battery_capacity"),
-        "ram_capacity": get_range("ram_capacity"),
-        "internal_memory": get_range("internal_memory"),
-        "screen_size": get_range("screen_size"),
-        "cpu_benchmark": get_range("cpu_benchmark"),
-        "avg_rating": get_range("avg_rating")
+        "price_range": get_range("price"),
+        "battery_range": get_range("battery_capacity"),
+        "ram_options": get_unique("ram_capacity"),
+        "internal_memory_options": get_unique("internal_memory"),
+        "screen_size_range": get_range("screen_size"),
+        "cpu_benchmark_range": get_range("cpu_benchmark"),
+        "avg_rating_range": get_range("avg_rating"),
+        "camera_quality_options": get_unique("camera_quality"),
+        "weight_range": get_range("weight")
     }

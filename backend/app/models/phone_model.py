@@ -12,3 +12,6 @@ class Phone(BaseModel):
     cpu_benchmark: int
     avg_rating: float
     ranking: Optional[float] = None
+    camera_quality: int     
+    weight: int             
+    
