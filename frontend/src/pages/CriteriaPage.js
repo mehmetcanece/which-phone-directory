@@ -96,7 +96,7 @@ function CriteriaPage() {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
             <FormControlLabel
-            control={<Checkbox checked={useMaxPrice} onChange={(e) => setUseMaxPrice(e.target.checked)} />}
+            control={<Checkbox checked={useMaxPrice} onChange={(e) => setUseMaxPrice(e.target.checked)} sx={{'&.Mui-checked':{color:"#0a192f"},}} />}
              />
           <Typography gutterBottom>Maximum Price (₺)</Typography>
           <Slider
@@ -106,11 +106,12 @@ function CriteriaPage() {
             max={filterOptions?.price_range?.max || 100000}
             step={1000}
             valueLabelDisplay="auto"
+            sx={{color:"#0a192f"}}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
             <FormControlLabel
-            control={<Checkbox checked={useMinRating} onChange={(e) => setUseMinRating(e.target.checked)} />}
+            control={<Checkbox checked={useMinRating} onChange={(e) => setUseMinRating(e.target.checked)} sx={{'&.Mui-checked':{color:"#0a192f"},}} />}
             />
             
           <Typography gutterBottom>Minimum Average Rating</Typography>
@@ -121,13 +122,12 @@ function CriteriaPage() {
             max={filterOptions?.avg_rating_range?.max || 10}
             step={0.1}
             valueLabelDisplay="auto"
+            sx={{color:"#0a192f"}}
           />
         </Grid>
-        </Grid>
-        <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
             <FormControlLabel
-            control={<Checkbox checked={useMinCpu} onChange={(e) => setUseMinCpu(e.target.checked)} />}
+            control={<Checkbox checked={useMinCpu} onChange={(e) => setUseMinCpu(e.target.checked)} sx={{'&.Mui-checked':{color:"#0a192f"},}} />}
             />
           <Typography gutterBottom>Minimum CPU Benchmark</Typography>
           <Slider
@@ -137,11 +137,12 @@ function CriteriaPage() {
             max={filterOptions?.cpu_benchmark_range?.max || 11000}
             step={500}
             valueLabelDisplay="auto"
+            sx={{color:"#0a192f"}}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
             <FormControlLabel
-            control={<Checkbox checked={useMinBattery} onChange={(e) => setUseMinBattery(e.target.checked)} />}
+            control={<Checkbox checked={useMinBattery} onChange={(e) => setUseMinBattery(e.target.checked)} sx={{'&.Mui-checked':{color:"#0a192f"},}} />}
             />
           <Typography gutterBottom>Minimum Battery Capacity (mAh)</Typography>
           <Slider
@@ -151,10 +152,10 @@ function CriteriaPage() {
             max={filterOptions?.battery_range?.max || 6000}
             step={100}
             valueLabelDisplay="auto"
+            sx={{color:"#0a192f"}}
           />
         </Grid>
         </Grid>
-      
 
       {/* Storage */}
       <Typography variant="h5" sx={{ mt: 4 }}>
@@ -163,7 +164,7 @@ function CriteriaPage() {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
             <FormControlLabel
-            control={<Checkbox checked={useRam} onChange={(e) => setUseRam(e.target.checked)} />}
+            control={<Checkbox checked={useRam} onChange={(e) => setUseRam(e.target.checked)} sx={{'&.Mui-checked':{color:"#0a192f"},}} />}
             />
           <FormControl fullWidth sx={{ minWidth:200, mb: 2 }}>
             <InputLabel id="ram-select-label">RAM (GB)</InputLabel>
@@ -184,7 +185,7 @@ function CriteriaPage() {
 
         <Grid item xs={12} sm={6}>
             <FormControlLabel
-            control={<Checkbox checked={useInternalMemory} onChange={(e) => setUseInternalMemory(e.target.checked)} />}
+            control={<Checkbox checked={useInternalMemory} onChange={(e) => setUseInternalMemory(e.target.checked)} sx={{'&.Mui-checked':{color:"#0a192f"},}} />}
             />
           <FormControl fullWidth sx={{minWidth:200}}>
             <InputLabel id="memory-select-label">
@@ -213,7 +214,7 @@ function CriteriaPage() {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
             <FormControlLabel
-            control={<Checkbox checked={useScreenSize} onChange={(e) => setUseScreenSize(e.target.checked)} />}
+            control={<Checkbox checked={useScreenSize} onChange={(e) => setUseScreenSize(e.target.checked)} sx={{'&.Mui-checked':{color:"#0a192f"},}} />}
             />
           <Typography gutterBottom>Minimum Screen Size (inches)</Typography>
           <Slider
@@ -223,11 +224,12 @@ function CriteriaPage() {
             max={filterOptions?.screen_size_range?.max || 7.5}
             step={0.1}
             valueLabelDisplay="auto"
+            sx={{color:"#0a192f"}}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
             <FormControlLabel
-            control={<Checkbox checked={useMaxWeight} onChange={(e) => setUseMaxWeight(e.target.checked)} />}
+            control={<Checkbox checked={useMaxWeight} onChange={(e) => setUseMaxWeight(e.target.checked)} sx={{'&.Mui-checked':{color:"#0a192f"},}}/>}
             />
           <Typography gutterBottom>Max Weight (gr)</Typography>
           <Slider
@@ -237,6 +239,7 @@ function CriteriaPage() {
             max={filterOptions?.weight_range?.max || 300}
             step={1}
             valueLabelDisplay="auto"
+            sx={{color:"#0a192f"}}
           />
         </Grid>
       </Grid>
@@ -248,7 +251,7 @@ function CriteriaPage() {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
             <FormControlLabel
-            control={<Checkbox checked={useCameraQuality} onChange={(e) => setUseCameraQuality(e.target.checked)} />}
+            control={<Checkbox checked={useCameraQuality} onChange={(e) => setUseCameraQuality(e.target.checked)} sx={{'&.Mui-checked':{color:"#0a192f"},}} />}
             />
           <FormControl fullWidth sx={{ minWidth:300, mb: 4 }}>
             <InputLabel id="camera-select-label">
@@ -274,7 +277,7 @@ function CriteriaPage() {
       <Box mt={5}>
         <Button
           variant="contained"
-          color="primary"
+          sx={{backgroundColor:"#0a192f"}}
           fullWidth
           size="large"
           onClick={handleSubmit}
