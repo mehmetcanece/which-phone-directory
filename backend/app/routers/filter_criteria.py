@@ -8,9 +8,7 @@ router = APIRouter()
 
 @router.get("/filter-criteria")
 def get_filter_criteria() -> Dict[str, Any]:
-    """
-    Returns available filter ranges and brand list.
-    """
+ 
     return get_filter_options()
 
 @router.post("/filter-criteria/result")
