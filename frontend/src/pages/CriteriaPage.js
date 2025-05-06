@@ -9,6 +9,8 @@ import {
   InputLabel,
   Select,
   MenuItem,
+  FormControlLabel,
+  Checkbox,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
@@ -23,6 +25,16 @@ function CriteriaPage() {
   const [minBattery, setMinBattery] = useState(3000);
   const [maxWeight, setMaxWeight] = useState(170);
   const [filterOptions, setFilterOptions] = useState(null);
+
+  const[useMaxPrice, setUseMaxPrice] = React.useState(false);
+  const[useMinRating, setUseMinRating] = React.useState(false);
+  const[useMinCpu, setUseMinCpu] = React.useState(false);
+  const[useMinBattery,setUseMinBattery] = React.useState(false);
+  const[useRam,setUseRam] = React.useState(false);
+  const[useInternalMemory,setUseInternalMemory] = React.useState(false);
+  const[useScreenSize,setUseScreenSize] = React.useState(false);
+  const[useMaxWeight,setUseMaxWeight] = React.useState(false);
+  const[useCameraQuality,setUseCameraQuality] = React.useState(false);
 
   const navigate = useNavigate();
 
@@ -73,16 +85,19 @@ function CriteriaPage() {
 
   return (
     <Box p={3}>
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" gutterBottom textAlign="center">
         Enter Your Preferred Phone Criteria
       </Typography>
 
       {/* Performance */}
-      <Typography variant="h6" sx={{ mt: 3 }}>
+      <Typography variant="h5" sx={{ mt: 3 }}>
         Performance
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
+            <FormControlLabel
+            control={<Checkbox checked={useMaxPrice} onChange={(e) => setUseMaxPrice(e.target.checked)} sx={{'&.Mui-checked':{color:"#0a192f"},}} />}
+             />
           <Typography gutterBottom>Maximum Price (₺)</Typography>
           <Slider
             value={maxPrice}
@@ -91,9 +106,14 @@ function CriteriaPage() {
             max={filterOptions?.price_range?.max || 100000}
             step={1000}
             valueLabelDisplay="auto"
+            sx={{color:"#0a192f"}}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
+            <FormControlLabel
+            control={<Checkbox checked={useMinRating} onChange={(e) => setUseMinRating(e.target.checked)} sx={{'&.Mui-checked':{color:"#0a192f"},}} />}
+            />
+            
           <Typography gutterBottom>Minimum Average Rating</Typography>
           <Slider
             value={minRating}
@@ -102,9 +122,13 @@ function CriteriaPage() {
             max={filterOptions?.avg_rating_range?.max || 10}
             step={0.1}
             valueLabelDisplay="auto"
+            sx={{color:"#0a192f"}}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
+            <FormControlLabel
+            control={<Checkbox checked={useMinCpu} onChange={(e) => setUseMinCpu(e.target.checked)} sx={{'&.Mui-checked':{color:"#0a192f"},}} />}
+            />
           <Typography gutterBottom>Minimum CPU Benchmark</Typography>
           <Slider
             value={minCpu}
@@ -113,9 +137,13 @@ function CriteriaPage() {
             max={filterOptions?.cpu_benchmark_range?.max || 11000}
             step={500}
             valueLabelDisplay="auto"
+            sx={{color:"#0a192f"}}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
+            <FormControlLabel
+            control={<Checkbox checked={useMinBattery} onChange={(e) => setUseMinBattery(e.target.checked)} sx={{'&.Mui-checked':{color:"#0a192f"},}} />}
+            />
           <Typography gutterBottom>Minimum Battery Capacity (mAh)</Typography>
           <Slider
             value={minBattery}
@@ -124,17 +152,21 @@ function CriteriaPage() {
             max={filterOptions?.battery_range?.max || 6000}
             step={100}
             valueLabelDisplay="auto"
+            sx={{color:"#0a192f"}}
           />
         </Grid>
-      </Grid>
+        </Grid>
 
       {/* Storage */}
-      <Typography variant="h6" sx={{ mt: 4 }}>
+      <Typography variant="h5" sx={{ mt: 4 }}>
         Storage
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
-          <FormControl fullWidth sx={{ mb: 2 }}>
+            <FormControlLabel
+            control={<Checkbox checked={useRam} onChange={(e) => setUseRam(e.target.checked)} sx={{'&.Mui-checked':{color:"#0a192f"},}} />}
+            />
+          <FormControl fullWidth sx={{ minWidth:200, mb: 2 }}>
             <InputLabel id="ram-select-label">RAM (GB)</InputLabel>
             <Select
               labelId="ram-select-label"
@@ -152,7 +184,10 @@ function CriteriaPage() {
         </Grid>
 
         <Grid item xs={12} sm={6}>
-          <FormControl fullWidth>
+            <FormControlLabel
+            control={<Checkbox checked={useInternalMemory} onChange={(e) => setUseInternalMemory(e.target.checked)} sx={{'&.Mui-checked':{color:"#0a192f"},}} />}
+            />
+          <FormControl fullWidth sx={{minWidth:200}}>
             <InputLabel id="memory-select-label">
               Internal Memory (GB)
             </InputLabel>
@@ -173,11 +208,14 @@ function CriteriaPage() {
       </Grid>
 
       {/* Display */}
-      <Typography variant="h6" sx={{ mt: 4 }}>
+      <Typography variant="h5" sx={{ mt: 4 }}>
         Display
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
+            <FormControlLabel
+            control={<Checkbox checked={useScreenSize} onChange={(e) => setUseScreenSize(e.target.checked)} sx={{'&.Mui-checked':{color:"#0a192f"},}} />}
+            />
           <Typography gutterBottom>Minimum Screen Size (inches)</Typography>
           <Slider
             value={screenSize}
@@ -186,9 +224,13 @@ function CriteriaPage() {
             max={filterOptions?.screen_size_range?.max || 7.5}
             step={0.1}
             valueLabelDisplay="auto"
+            sx={{color:"#0a192f"}}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
+            <FormControlLabel
+            control={<Checkbox checked={useMaxWeight} onChange={(e) => setUseMaxWeight(e.target.checked)} sx={{'&.Mui-checked':{color:"#0a192f"},}}/>}
+            />
           <Typography gutterBottom>Max Weight (gr)</Typography>
           <Slider
             value={maxWeight}
@@ -197,17 +239,21 @@ function CriteriaPage() {
             max={filterOptions?.weight_range?.max || 300}
             step={1}
             valueLabelDisplay="auto"
+            sx={{color:"#0a192f"}}
           />
         </Grid>
       </Grid>
 
       {/* Camera */}
-      <Typography variant="h6" sx={{ mt: 4 }}>
+      <Typography variant="h5" sx={{ mt: 4 }}>
         Camera
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
-          <FormControl fullWidth sx={{ mb: 4 }}>
+            <FormControlLabel
+            control={<Checkbox checked={useCameraQuality} onChange={(e) => setUseCameraQuality(e.target.checked)} sx={{'&.Mui-checked':{color:"#0a192f"},}} />}
+            />
+          <FormControl fullWidth sx={{ minWidth:300, mb: 4 }}>
             <InputLabel id="camera-select-label">
               Camera Quality (MP)
             </InputLabel>
@@ -231,7 +277,7 @@ function CriteriaPage() {
       <Box mt={5}>
         <Button
           variant="contained"
-          color="primary"
+          sx={{backgroundColor:"#0a192f"}}
           fullWidth
           size="large"
           onClick={handleSubmit}
