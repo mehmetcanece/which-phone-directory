@@ -76,7 +76,7 @@ function CriteriaPage() {
 
       const data = await response.json();
       console.log("Gelen telefonlar:", data.top_5_phones);
-      navigate("/results", { state: data.top_5_phones });
+      navigate("/filter-criteria/result", { state: data.top_5_phones });
     } catch (error) {
       console.error("API Hatası:", error);
       alert("Sunucuya bağlanırken hata oluştu.");
