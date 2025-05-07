@@ -5,9 +5,9 @@ from PIL import Image
 import shutil
 from PIL import ImageOps
 
-AUGMENTED_IMAGES_PER_IMAGE = 2  #increases total photo of a brand by 3x
-LOW_DATASET_DIR = "../Phone_Images/samsung"    # Change folder accordingly
-OUTPUT_DIR = "../Phone_Images/samsung_note_augmented"  # Change output folder accordingly
+AUGMENTED_IMAGES_PER_IMAGE = 2  # increases total photo of a brand by 3x
+LOW_DATASET_DIR = "../Phone_Images/samsung"    # change folder accordingly
+OUTPUT_DIR = "../Phone_Images/samsung_note_augmented"  # change output folder accordingly
 
 datagen = ImageDataGenerator(
     rotation_range=10,
