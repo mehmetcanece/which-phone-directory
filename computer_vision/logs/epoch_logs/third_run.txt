@@ -1,0 +1,13 @@
+MobileNetV2, added asus and nokia, 10 epochs
+
+Found 1621 files belonging to 7 classes.
+Using 324 files for validation.
+Class Names: ['apple', 'asus', 'google', 'motorola', 'nokia', 'oppo', 'samsung']
+Epoch 1/10
+41/41 ━━━━━━━━━━━━━━━━━━━━ 22s 409ms/step - accuracy: 0.5025 - loss: 1.3907 - val_accuracy: 0.3426 - val_loss: 4.9176
+Epoch 2/10
+41/41 ━━━━━━━━━━━━━━━━━━━━ 15s 372ms/step - accuracy: 0.8929 - loss: 0.3135 - val_accuracy: 0.3519 - val_loss: 5.5230
+Epoch 3/10
+41/41 ━━━━━━━━━━━━━━━━━━━━ 15s 373ms/step - accuracy: 0.9260 - loss: 0.1978 - val_accuracy: 0.3395 - val_loss: 7.1331
+Epoch 4/10
+41/41 ━━━━━━━━━━━━━━━━━━━━ 15s 374ms/step - accuracy: 0.9411 - loss: 0.1699 - val_accuracy: 0.2654 - val_loss: 13.7492
