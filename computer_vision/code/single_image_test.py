@@ -3,9 +3,9 @@ import numpy as np
 from tensorflow.keras.preprocessing import image
 import matplotlib.pyplot as plt
 
-model = tf.keras.models.load_model("phone_brand_classifier.h5")
+model = tf.keras.models.load_model("phone_brand_classifier_efficientnet.h5")
 
-class_names = ['apple', 'google', 'motorola', 'oppo', 'samsung']
+class_names = ['apple', 'asus', 'google', 'motorola', 'nokia', 'oppo', 'samsung']
 
 img_path = "../test_images/test.jpg" 
 
