@@ -1,0 +1,17 @@
+MobileNetV2, 7 classes (same), 10 epochs, added dropout and regularization.
+
+Found 1621 files belonging to 7 classes.
+Using 324 files for validation.
+Class Names: ['apple', 'asus', 'google', 'motorola', 'nokia', 'oppo', 'samsung']
+Epoch 1/10
+41/41 ━━━━━━━━━━━━━━━━━━━━ 22s 413ms/step - accuracy: 0.4747 - loss: 1.7073 - val_accuracy: 0.3364 - val_loss: 4.8984
+Epoch 2/10
+41/41 ━━━━━━━━━━━━━━━━━━━━ 16s 395ms/step - accuracy: 0.8720 - loss: 0.5900 - val_accuracy: 0.5247 - val_loss: 4.0298
+Epoch 3/10
+41/41 ━━━━━━━━━━━━━━━━━━━━ 16s 392ms/step - accuracy: 0.9194 - loss: 0.4543 - val_accuracy: 0.3673 - val_loss: 7.3163
+Epoch 4/10
+41/41 ━━━━━━━━━━━━━━━━━━━━ 15s 377ms/step - accuracy: 0.9346 - loss: 0.4033 - val_accuracy: 0.5741 - val_loss: 4.5506
+Epoch 5/10
+41/41 ━━━━━━━━━━━━━━━━━━━━ 15s 375ms/step - accuracy: 0.9472 - loss: 0.3477 - val_accuracy: 0.6204 - val_loss: 4.3230
+Epoch 6/10
+41/41 ━━━━━━━━━━━━━━━━━━━━ 15s 376ms/step - accuracy: 0.9490 - loss: 0.3521 - val_accuracy: 0.5093 - val_loss: 6.2950
