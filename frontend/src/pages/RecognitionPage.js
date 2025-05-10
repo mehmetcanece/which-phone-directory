@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useRef} from "react";
 import{
     Box,
     Typography,
@@ -14,11 +14,13 @@ import UploadFileIcon from "@mui/icons-material/UploadFile";
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { useNavigate } from "react-router-dom";
 
 function RecognitionPage(){
     const[activeStep,setActiveStep] = useState(0);
     const[image,setImage] = useState(null);
+    const fileInputRef = useRef(null);
     
 
     const navigate = useNavigate();
@@ -31,12 +33,24 @@ function RecognitionPage(){
 
         setImage(URL.createObjectURL(file));
         setActiveStep(1);
+
+        setTimeout(() => {
+            setActiveStep(2);
+        }, 2000);
     };
 
     const handleSeeResults = () => {
-        setActiveStep(2);
+        setActiveStep(3);
 
         navigate("/results", { state: {image}});
+    };
+
+    const handleDelete = () => {
+        setImage(null);
+        setActiveStep(0);
+        if (fileInputRef.current) {
+            fileInputRef.current.value = null;
+        }
     };
 
     return(
@@ -79,28 +93,39 @@ function RecognitionPage(){
             sx={{mt: 2, mb: 2, backgroundColor:"#0a192f"}}
             >
                 Upload Phone Photo
-                <input type="file" accept="image/*" hidden onChange={handleFileChange} />
+                <input type="file" accept="image/*" hidden onChange={handleFileChange} ref={fileInputRef} />
             </Button>
 
             {image && (
-                <Box mt={3}>
+                <Box position="relative" display="inline-block">
                     <img
                     src={image}
                     alt="Phone preview"
                     style={{
-                        width: "60%",
+                        width: "40%",
                         borderRadius: 10,
                         boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
                         marginBottom: 20,
                     }}
                     />
                     <Button
-                    variant="outlined"
-                    sx={{color: "#0a192f"}}
+                    variant="contained"
+                    sx={{backgroundColor: "#0a192f", position:"absolute", top:"50%", right:16, transform:"translateY(-50%)",}}
                     onClick={handleSeeResults}
                     >
                         See Results
                     </Button>
+                    <Box mt={2} display="flex" justifyContent="center">
+                    <Tooltip title="Remove Photo">
+                    <IconButton
+                    onClick={handleDelete}
+                    aria-label="delete"
+                    sx={{backgroundColor:"#0a192f", color:"white", "&:hover":{backgroundColor:"#0a192f", color:"white",},}}
+                    >
+                        <DeleteIcon />
+                    </IconButton>
+                    </Tooltip>
+                    </Box>
                     </Box>
             )}
         </Box>

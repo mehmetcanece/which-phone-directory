@@ -78,7 +78,7 @@ const HomePage = () => {
           variant="body1"
           sx={{ fontSize: "1.1rem", color: "#000000", mb: 2 }}
         >
-          React, JavaScript, Python, FastAPI, Material UI
+          React, JavaScript, Python, FastAPI, Material UI, Tensorflow, Keras
         </Typography>
         <Link
           href="https://github.com/mehmetcanece/which-phone-directory"

@@ -8,7 +8,6 @@ async def upload_phone_image(image: UploadFile = File(...)):
     if not image.content_type.startswith("image/"):
         raise HTTPException(status_code=400, detail="Invalid file type. Please upload an image.")
     
-    # Gerçek model yok, dummy brand döndürülüyor
     return {"predicted_brand": "Apple"}
 
 @router.get("/recognition/result")

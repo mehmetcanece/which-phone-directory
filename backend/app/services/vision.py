@@ -1,4 +1,6 @@
 def detect_brand_from_image(image_bytes: bytes) -> str:
-    # Şimdilik dummy tahmin (YOLO entegresi yapılınca buraya model gelecek)
-    # Örnek olarak daima "Apple" döndürüyoruz
+    
+    #computer vision folderındaki kod sistemini buraya entegre edicem
+    
+    
     return "Apple"
