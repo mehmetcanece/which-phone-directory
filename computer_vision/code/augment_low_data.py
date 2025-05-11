@@ -5,9 +5,9 @@ from PIL import Image
 import shutil
 from PIL import ImageOps
 
-AUGMENTED_IMAGES_PER_IMAGE = 2  # increases total photo of a brand by 3x
-LOW_DATASET_DIR = "../Phone_Images/samsung"    # change folder accordingly
-OUTPUT_DIR = "../Phone_Images/samsung_note_augmented"  # change output folder accordingly
+AUGMENTED_IMAGES_PER_IMAGE = 3  # change multiply value accordingly
+LOW_DATASET_DIR = "../Phone_Images/asus"    # change folder accordingly
+OUTPUT_DIR = "../Phone_Images/asus_augmented"  # change output folder accordingly
 
 datagen = ImageDataGenerator(
     rotation_range=10,
@@ -41,6 +41,6 @@ for filename in os.listdir(LOW_DATASET_DIR):
                 if count >= AUGMENTED_IMAGES_PER_IMAGE:
                     break
         except Exception as e:
-            print(f"Hata oluştu: {filename} - {e}")
+            print(f"error: {filename} - {e}")
 
-print("✅ Augmentation complete. Folder:", OUTPUT_DIR)
+print("complete")
