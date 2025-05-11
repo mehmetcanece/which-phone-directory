@@ -1,4 +1,3 @@
-# utils.py (veya doğrudan router dosyanızda)
 def get_top_5_by_brand(brand: str):
     sample_phones = {
         "Apple": [

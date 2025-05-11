@@ -58,7 +58,7 @@ function RecognitionPage() {
       const predictedBrand = data.predicted_brand;
 
       const resultRes = await fetch(
-        `http://localhost:8000/recognition/result?brand=${predictedBrand}`
+        `http://localhost:8000/recognition/result?brand=${predictedBrand}` /// get isteği atıyorum burada en iyi 5 telefonu almak için
       );
       const resultData = await resultRes.json();
 
@@ -67,7 +67,7 @@ function RecognitionPage() {
           image: imagePreview,
           brand: predictedBrand,
           phones: resultData.top_5_phones,
-        },
+        }, /// bu state içindeki tüm verileri backende gönderiyorum
       });
     } catch (err) {
       console.error("Error:", err);
