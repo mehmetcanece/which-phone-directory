@@ -13,7 +13,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Router'lar
 app.include_router(home.router)
 app.include_router(recognition.router)
 app.include_router(filter_criteria.router)
