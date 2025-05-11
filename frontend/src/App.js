@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import CriteriaPage from "./pages/CriteriaPage";
 import RecognitionPage from "./pages/RecognitionPage";
 import ResultsPage from "./pages/ResultsPage";
+import RecognitionResultsPage from "./pages/RecognitionResultsPage";
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
           <Route path="/filter-criteria" element={<CriteriaPage />} />
           <Route path="/recognition" element={<RecognitionPage />} />
           <Route path="/filter-criteria/result" element={<ResultsPage />} />
+          <Route path="/recognition/result" element={<RecognitionResultsPage />} />
         </Routes>
       </Container>
     </Router>
