@@ -1,5 +1,5 @@
 from fastapi import APIRouter, UploadFile, File, HTTPException
-
+from app.services.vision import get_top_5_by_brand 
 
 router = APIRouter()
 
