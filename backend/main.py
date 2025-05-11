@@ -4,10 +4,10 @@ from app.routers import home, recognition, filter_criteria
 
 app = FastAPI(title="Which Phone Backend")
 
-# CORS ayarı (React için localhost:3000'e izin verir)
+# CORS ayarı react için localhost:3000'e izin verir
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Gerekirse "*" ile tüm origin'lere izin verilebilir
+    allow_origins=["http://localhost:3000"],  # gerekirse * ile tüm hepsine izin veririz
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -20,4 +20,4 @@ app.include_router(filter_criteria.router)
 
 @app.get("/")
 def read_root():
-    return {"message": "Backend çalışıyor"}
+    return {"message": "Backend is working."}

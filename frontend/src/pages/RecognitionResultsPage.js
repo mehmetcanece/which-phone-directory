@@ -22,6 +22,7 @@ const RecognitionResultsPage = () => {
 
   useEffect(() => {
     if (brand && phones?.length > 0) {
+      //burada yüklenip yüklenmediğini kontrol ettim yani backendden verinin gelip gelmediğini
       setLoading(false);
     }
   }, [brand, phones]);
@@ -32,7 +33,7 @@ const RecognitionResultsPage = () => {
         <Typography variant="h5" gutterBottom fontWeight="bold">
           Recognized Brand
         </Typography>
-        {loading ? (
+        {loading ? ( //burada da üstte use effect ile kontorlünü yaotığım verilerin gelip gelmediğine göre skeletonu düzelttim
           <Skeleton variant="text" width="80%" height={40} />
         ) : (
           <Typography variant="h6" sx={{ color: "#0a192f" }}>
