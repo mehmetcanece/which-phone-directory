@@ -42,7 +42,7 @@ function RecognitionPage(){
     const handleSeeResults = () => {
         setActiveStep(3);
 
-        navigate("/results", { state: {image}});
+        navigate("/recognition/result", { state: {image}});
     };
 
     const handleDelete = () => {
