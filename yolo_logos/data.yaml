@@ -1,0 +1,5 @@
+train: images/train
+val: images/train 
+
+nc: 9 
+names: ['apple', 'asus', 'google', 'motorola', 'nokia', 'oppo', 'samsung', 'vivo', 'xiaomi']

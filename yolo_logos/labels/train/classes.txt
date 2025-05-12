@@ -1,0 +1,10 @@
+apple
+asus
+google
+motorola
+nokia
+oppo
+samsung
+vivo
+xiaomi
+
