@@ -1,0 +1,38 @@
+EfficientNetB0, 9 class, 20 epoch
+
+Class Names: ['apple', 'asus', 'google', 'motorola', 'nokia', 'oppo', 'samsung', 'vivo', 'xiaomi']
+Epoch 1/20
+64/64 ━━━━━━━━━━━━━━━━━━━━ 163s 2s/step - accuracy: 0.6073 - loss: 1.3740 - val_accuracy: 0.9353 - val_loss: 0.5147
+Epoch 2/20
+64/64 ━━━━━━━━━━━━━━━━━━━━ 141s 2s/step - accuracy: 0.9566 - loss: 0.3632 - val_accuracy: 0.8902 - val_loss: 0.8885
+Epoch 3/20
+64/64 ━━━━━━━━━━━━━━━━━━━━ 141s 2s/step - accuracy: 0.9807 - loss: 0.2601 - val_accuracy: 0.9392 - val_loss: 0.4445
+Epoch 4/20
+64/64 ━━━━━━━━━━━━━━━━━━━━ 141s 2s/step - accuracy: 0.9770 - loss: 0.2539 - val_accuracy: 0.9294 - val_loss: 0.3870
+Epoch 5/20
+64/64 ━━━━━━━━━━━━━━━━━━━━ 139s 2s/step - accuracy: 0.9852 - loss: 0.2031 - val_accuracy: 0.9765 - val_loss: 0.2544
+Epoch 6/20
+64/64 ━━━━━━━━━━━━━━━━━━━━ 141s 2s/step - accuracy: 0.9838 - loss: 0.1925 - val_accuracy: 0.9627 - val_loss: 0.2874
+Epoch 7/20
+64/64 ━━━━━━━━━━━━━━━━━━━━ 141s 2s/step - accuracy: 0.9890 - loss: 0.1600 - val_accuracy: 0.9824 - val_loss: 0.1661
+Epoch 8/20
+64/64 ━━━━━━━━━━━━━━━━━━━━ 141s 2s/step - accuracy: 0.9942 - loss: 0.1204 - val_accuracy: 0.9882 - val_loss: 0.1284
+Epoch 9/20
+64/64 ━━━━━━━━━━━━━━━━━━━━ 141s 2s/step - accuracy: 0.9949 - loss: 0.1125 - val_accuracy: 0.9902 - val_loss: 0.1191
+Epoch 10/20
+64/64 ━━━━━━━━━━━━━━━━━━━━ 142s 2s/step - accuracy: 0.9985 - loss: 0.0825 - val_accuracy: 0.9745 - val_loss: 0.1454
+Epoch 11/20
+64/64 ━━━━━━━━━━━━━━━━━━━━ 140s 2s/step - accuracy: 0.9949 - loss: 0.0801 - val_accuracy: 0.9882 - val_loss: 0.0811
+64/64 ━━━━━━━━━━━━━━━━━━━━ 139s 2s/step - accuracy: 0.9960 - loss: 0.0653 - val_accuracy: 0.9843 - val_loss: 0.1248
+Epoch 13/20
+64/64 ━━━━━━━━━━━━━━━━━━━━ 139s 2s/step - accuracy: 0.9952 - loss: 0.0684 - val_accuracy: 0.9725 - val_loss: 0.1214
+Epoch 14/20
+64/64 ━━━━━━━━━━━━━━━━━━━━ 140s 2s/step - accuracy: 0.9996 - loss: 0.0452 - val_accuracy: 0.9961 - val_loss: 0.0559
+Epoch 15/20
+64/64 ━━━━━━━━━━━━━━━━━━━━ 140s 2s/step - accuracy: 0.9967 - loss: 0.0434 - val_accuracy: 0.9569 - val_loss: 0.2083
+Epoch 16/20
+64/64 ━━━━━━━━━━━━━━━━━━━━ 140s 2s/step - accuracy: 0.9835 - loss: 0.0692 - val_accuracy: 0.9392 - val_loss: 0.2299
+Epoch 17/20
+64/64 ━━━━━━━━━━━━━━━━━━━━ 139s 2s/step - accuracy: 0.9842 - loss: 0.0817 - val_accuracy: 0.9569 - val_loss: 0.1953
+Epoch 18/20
+64/64 ━━━━━━━━━━━━━━━━━━━━ 140s 2s/step - accuracy: 0.9884 - loss: 0.0776 - val_accuracy: 0.9784 - val_loss: 0.1214
