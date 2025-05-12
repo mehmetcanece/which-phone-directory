@@ -13,7 +13,7 @@ id_map = {
     23: 8   # xiaomi
 }
 
-labels_dir = "C:/Users/Ercan Bican/which-phone-directory/yolo_logos/labels/train"
+labels_dir = "../yolo_logos/labels/train"
 
 for filename in os.listdir(labels_dir):
     if filename.endswith(".txt"):
