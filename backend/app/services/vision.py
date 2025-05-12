@@ -1,19 +1,34 @@
-def get_top_5_by_brand(brand: str):
-    sample_phones = {
-        "Apple": [
-            {"name": "iPhone 14 Pro Max", "price": 1199, "ram": 6, "storage": 256},
-            {"name": "iPhone 13 Pro", "price": 999, "ram": 6, "storage": 128},
-            {"name": "iPhone 12", "price": 799, "ram": 4, "storage": 64},
-            {"name": "iPhone SE", "price": 429, "ram": 4, "storage": 64},
-            {"name": "iPhone 11", "price": 599, "ram": 4, "storage": 128},
-        ],
-        "Samsung": [
-            {"name": "Galaxy S23 Ultra", "price": 1199, "ram": 12, "storage": 512},
-            {"name": "Galaxy S22", "price": 899, "ram": 8, "storage": 256},
-            {"name": "Galaxy A54", "price": 349, "ram": 6, "storage": 128},
-            {"name": "Galaxy Z Flip", "price": 999, "ram": 8, "storage": 128},
-            {"name": "Galaxy M14", "price": 229, "ram": 4, "storage": 64},
-        ]
-    }
+import json
+import os
+from typing import List, Dict
 
-    return sample_phones.get(brand, [])
+# Dinamik yol çözümü
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+PHONES_PATH = os.path.join(BASE_DIR, "../data/phones.json")
+PHONES_PATH = os.path.abspath(PHONES_PATH)
+
+with open(PHONES_PATH, "r") as f:
+    PHONE_DATA = json.load(f)
+
+def get_top_5_by_brand(brand: str) -> List[Dict]:
+    brand = brand.strip().lower()
+    
+    filtered = [
+        phone for phone in PHONE_DATA
+        if phone.get("brand_name", "").lower() == brand
+    ]
+    
+    sorted_phones = sorted(filtered, key=lambda x: x.get("ranking", float('inf')))
+    
+    return [
+    {
+        "model": phone["model"],
+        "price": phone["price"],
+        "ram": phone["ram_capacity"],
+        "storage": phone["internal_memory"],
+        "avg_rating": phone["avg_rating"],           
+        "camera_quality": phone["camera_quality"],
+        "ranking": phone.get("ranking", 0)      
+    }
+    for phone in sorted_phones[:5]
+]
