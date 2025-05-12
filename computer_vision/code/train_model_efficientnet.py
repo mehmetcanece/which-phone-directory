@@ -57,5 +57,5 @@ model.fit(
     callbacks=[early_stop]
 )
 
-model.save("phone_brand_classifier_efficientnet.h5")
+model.save("phone_brand_classifier_efficientnet_v2.h5")
 
