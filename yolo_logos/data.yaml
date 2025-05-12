@@ -1,5 +1,5 @@
-train: images/train
-val: images/train 
+train: C:/Users/Ercan Bican/which-phone-directory/yolo_logos/images/train
+val: C:/Users/Ercan Bican/which-phone-directory/yolo_logos/images/train
 
 nc: 9 
 names: ['apple', 'asus', 'google', 'motorola', 'nokia', 'oppo', 'samsung', 'vivo', 'xiaomi']
