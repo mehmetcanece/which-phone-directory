@@ -85,7 +85,7 @@ RUN apt-get update && apt-get install -y libgl1-mesa-glx libglib2.0-0
 | POST   | `/recognition`               | Detect phone brand from image          |
 | GET    | `/recognition/result`        | Return top 5 phones by detected brand  |
 | POST   | `/filter-criteria`           | Submit filter preferences              |
-| GET    | `/filter-criteria/result`    | Return top 5 phones by MCDA            |
+| GET    | `/filter-criteria/result`    | Return top 5 phones by selected criteria|
 
 ---
 
