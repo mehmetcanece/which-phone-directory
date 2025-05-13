@@ -140,7 +140,6 @@ const HomePage = () => {
         </Box>
         <Divider sx={{ width: "100%", my: 4, bgcolor: "#999" }} />
 
-        {/* Footer: BAU Logo */}
         <Box sx={{ mt: 4, textAlign: "center" }}>
           <Box
             component="img"

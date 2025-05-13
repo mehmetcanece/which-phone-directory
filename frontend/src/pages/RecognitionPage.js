@@ -6,6 +6,7 @@ import {
   Stepper,
   Step,
   StepLabel,
+  Divider,
   Tooltip,
   IconButton,
   CircularProgress,
@@ -253,6 +254,23 @@ function RecognitionPage() {
             </Tooltip>
           </Box>
         )}
+        <Divider sx={{ width: "100%", my: 4, bgcolor: "#999" }} />
+
+        <Box sx={{ mt: 4, textAlign: "center" }}>
+          <Box
+            component="img"
+            src="images/bau.png"
+            alt="Bahçeşehir University"
+            sx={{
+              width: 120,
+              height: "auto",
+              mb: 1,
+            }}
+          />
+          <Typography variant="body2" color="text.secondary">
+            Bahçeşehir University - 2025
+          </Typography>
+        </Box>
       </Box>
     </Box>
   );
