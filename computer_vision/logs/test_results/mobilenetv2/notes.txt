@@ -1,0 +1,7 @@
+test 1: I used a photo of a phone model that exist in our dataset.
+used samsung note 20
+%100 confidence correct prediction.
+
+test 2: Used a model that doesn't exist in our dataset.
+used motorola edge 50
+%99 confidence correct prediction.

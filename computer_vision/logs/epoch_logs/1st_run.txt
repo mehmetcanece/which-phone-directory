@@ -1,0 +1,25 @@
+Trained with MobileNetV2, 5 Classes, 10 epochs,
+
+Found 1348 files belonging to 5 classes.
+Using 269 files for validation.
+Class Names: ['apple', 'google', 'motorola', 'oppo', 'samsung']
+Epoch 1/10
+34/34 ━━━━━━━━━━━━━━━━━━━━ 15s 372ms/step - accuracy: 0.3764 - loss: 1.4594 - val_accuracy: 0.5762 - val_loss: 1.0294
+Epoch 2/10
+34/34 ━━━━━━━━━━━━━━━━━━━━ 11s 328ms/step - accuracy: 0.6578 - loss: 0.8858 - val_accuracy: 0.6803 - val_loss: 0.8611
+Epoch 3/10
+34/34 ━━━━━━━━━━━━━━━━━━━━ 11s 327ms/step - accuracy: 0.7261 - loss: 0.7542 - val_accuracy: 0.6506 - val_loss: 0.9104
+Epoch 4/10
+34/34 ━━━━━━━━━━━━━━━━━━━━ 12s 344ms/step - accuracy: 0.7991 - loss: 0.5739 - val_accuracy: 0.6729 - val_loss: 0.7958
+Epoch 5/10
+34/34 ━━━━━━━━━━━━━━━━━━━━ 11s 338ms/step - accuracy: 0.8491 - loss: 0.4889 - val_accuracy: 0.6914 - val_loss: 0.7949
+Epoch 6/10
+34/34 ━━━━━━━━━━━━━━━━━━━━ 12s 343ms/step - accuracy: 0.9114 - loss: 0.3711 - val_accuracy: 0.7138 - val_loss: 0.7736
+Epoch 7/10
+34/34 ━━━━━━━━━━━━━━━━━━━━ 12s 348ms/step - accuracy: 0.9226 - loss: 0.3206 - val_accuracy: 0.7175 - val_loss: 0.7440
+Epoch 8/10
+34/34 ━━━━━━━━━━━━━━━━━━━━ 11s 326ms/step - accuracy: 0.9388 - loss: 0.2814 - val_accuracy: 0.7175 - val_loss: 0.8018
+Epoch 9/10
+34/34 ━━━━━━━━━━━━━━━━━━━━ 11s 324ms/step - accuracy: 0.9453 - loss: 0.2492 - val_accuracy: 0.6840 - val_loss: 0.8208
+Epoch 10/10
+34/34 ━━━━━━━━━━━━━━━━━━━━ 12s 342ms/step - accuracy: 0.9467 - loss: 0.2229 - val_accuracy: 0.7286 - val_loss: 0.7423

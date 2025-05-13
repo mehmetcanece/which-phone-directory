@@ -1,0 +1,13 @@
+MobileNetV2, 5 classes, limited layers
+
+Found 1348 files belonging to 5 classes.
+Using 269 files for validation.
+Class Names: ['apple', 'google', 'motorola', 'oppo', 'samsung']
+Epoch 1/10
+34/34 ━━━━━━━━━━━━━━━━━━━━ 18s 405ms/step - accuracy: 0.5399 - loss: 1.2241 - val_accuracy: 0.4312 - val_loss: 3.8599
+Epoch 2/10
+34/34 ━━━━━━━━━━━━━━━━━━━━ 13s 376ms/step - accuracy: 0.8983 - loss: 0.3045 - val_accuracy: 0.3941 - val_loss: 5.5924
+Epoch 3/10
+34/34 ━━━━━━━━━━━━━━━━━━━━ 13s 380ms/step - accuracy: 0.9459 - loss: 0.1677 - val_accuracy: 0.3309 - val_loss: 6.7254
+Epoch 4/10
+34/34 ━━━━━━━━━━━━━━━━━━━━ 13s 381ms/step - accuracy: 0.9717 - loss: 0.0908 - val_accuracy: 0.2528 - val_loss: 16.9049

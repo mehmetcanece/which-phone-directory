@@ -1,10 +1,15 @@
+import os
 import json
 from typing import List
-from app.models.phone_model import Phone
-from app.models.request_models import PhoneFilterRequest
+from backend.app.models.phone_model import Phone
+from backend.app.models.request_models import PhoneFilterRequest
+
+# 📍 Güvenli dosya yolu çözümü
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+PHONES_PATH = os.path.join(BASE_DIR, "../data/phones.json")
 
 def filter_phones(filters: PhoneFilterRequest) -> List[dict]:
-    with open("app/data/phones.json") as f:
+    with open(PHONES_PATH, "r") as f:
         data = json.load(f)
 
     phones = [Phone(**item) for item in data]
@@ -38,11 +43,11 @@ def filter_phones(filters: PhoneFilterRequest) -> List[dict]:
             continue
         result.append(phone)
 
-    sorted_result = sorted(result, key=lambda p: p.ranking or 0, reverse=False)
+    sorted_result = sorted(result, key=lambda p: p.ranking or 0)
     return [p.dict() for p in sorted_result[:5]]
 
 def get_filter_options():
-    with open("app/data/phones.json") as f:
+    with open(PHONES_PATH, "r") as f:
         data = json.load(f)
 
     phones = [Phone(**item) for item in data]
