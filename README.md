@@ -29,7 +29,7 @@ which-phone-project/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/which-phone-project.git
+git clone https://github.com/mehmetcanece/which-phone-project.git
 cd which-phone-project
 ```
 
