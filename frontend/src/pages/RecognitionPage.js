@@ -77,6 +77,18 @@ function RecognitionPage() {
         method: "POST",
         body: formData,
       });
+
+      if (!res.ok) {
+        const errorData = await res.json();
+        navigate("/recognition/result", {
+          state: {
+            error: errorData.detail || "Prediction failed",
+            image: imagePreview,
+          },
+        });
+        return;
+      }
+
       const data = await res.json();
       const predictedBrand = data.predicted_brand;
 
@@ -93,7 +105,12 @@ function RecognitionPage() {
         },
       });
     } catch (err) {
-      console.error("Error:", err);
+      navigate("/recognition/result", {
+        state: {
+          error: "Unexpected error occurred",
+          image: imagePreview,
+        },
+      });
     }
   };
 

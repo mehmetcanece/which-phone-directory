@@ -16,20 +16,25 @@ async def upload_phone_image(image: UploadFile = File(...)):
     # Geçici dosya adı oluştur
     temp_dir = "temp_uploads"
     os.makedirs(temp_dir, exist_ok=True)
-    temp_path = os.path.join(temp_dir, f"{uuid.uuid4()}.jpg") #uuid ile unique ad üretiyorum
+    temp_path = os.path.join(temp_dir, f"{uuid.uuid4()}.jpg")  # uuid ile unique ad üretiyorum
 
     with open(temp_path, "wb") as buffer:
         shutil.copyfileobj(image.file, buffer)
 
     try:
         result = predict_phone_brand(temp_path)
-        return {
-            "predicted_brand": result["brand"],
-            "source": result["source"],
-            "confidence": result["confidence"]
-        }
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+
+        if result["confidence"] > 40.0:
+            return {
+                "predicted_brand": result["brand"],
+                "source": result["source"],
+                "confidence": result["confidence"]
+            }
+        else:
+            raise HTTPException(
+                status_code=422,
+                detail="Could not confidently recognize the phone brand. Please try another image."
+            )
     finally:
         os.remove(temp_path)
 

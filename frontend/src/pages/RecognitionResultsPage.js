@@ -8,36 +8,85 @@ import {
   Paper,
   Divider,
   Skeleton,
+  Button,
+  CircularProgress,
 } from "@mui/material";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import ThumbUpOffAltRoundedIcon from "@mui/icons-material/ThumbUpOffAltRounded";
 import MilitaryTechRoundedIcon from "@mui/icons-material/MilitaryTechRounded";
 import SellTwoToneIcon from "@mui/icons-material/SellTwoTone";
 
 const RecognitionResultsPage = () => {
   const location = useLocation();
-  const { image: uploadedImage, brand, phones } = location.state || {};
+  const navigate = useNavigate();
+
+  const { image: uploadedImage, brand, phones, error } = location.state || {};
 
   const [loading, setLoading] = useState(true);
+  const [loadingScreen, setLoadingScreen] = useState(true);
 
   useEffect(() => {
-    if (brand && phones?.length > 0) {
-      //burada yüklenip yüklenmediğini kontrol ettim yani backendden verinin gelip gelmediğini
+    // Sayfa ilk açıldığında 2.5 saniye yükleme ekranı göster
+    const timeout = setTimeout(() => {
+      setLoadingScreen(false);
+    }, 2500);
+    return () => clearTimeout(timeout);
+  }, []);
+
+  useEffect(() => {
+    if (error || !brand || !phones?.length) {
       setLoading(false);
+      return;
     }
-  }, [brand, phones]);
+    setLoading(false);
+  }, [brand, phones, error]);
+
+  const handleTryAgain = () => {
+    navigate("/recognition");
+  };
+
+  const formattedBrand =
+    brand?.charAt(0).toUpperCase() + brand?.slice(1).toLowerCase();
+
+  // Eğer hala yükleme ekranı açık ise
+  if (loadingScreen) {
+    return (
+      <Box
+        sx={{
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+          px: 4,
+        }}
+      >
+        <Typography variant="h5" fontWeight="bold" sx={{ mb: 3 }}>
+          We are recognizing your brand...
+        </Typography>
+        <CircularProgress size={64} thickness={5} sx={{ color: "#0a192f" }} />
+      </Box>
+    );
+  }
 
   return (
     <Box sx={{ display: "flex", padding: 4 }}>
+      {/* SOL TARAF: GÖRSEL VE MARKA */}
       <Box sx={{ width: "30%", pr: 4 }}>
         <Typography variant="h5" gutterBottom fontWeight="bold">
           Recognized Brand
         </Typography>
-        {loading ? ( //burada da üstte use effect ile kontorlünü yaotığım verilerin gelip gelmediğine göre skeletonu düzelttim
+
+        {loading ? (
           <Skeleton variant="text" width="80%" height={40} />
+        ) : error ? (
+          <Typography color="error" variant="h6">
+            Not Recognized
+          </Typography>
         ) : (
           <Typography variant="h6" sx={{ color: "#0a192f" }}>
-            {brand}
+            {formattedBrand}
           </Typography>
         )}
 
@@ -53,23 +102,57 @@ const RecognitionResultsPage = () => {
         )}
       </Box>
 
+      {/* SAĞ TARAF: SONUÇLAR VE HATALAR */}
       <Box sx={{ flex: 1 }}>
-        <Typography variant="h4" gutterBottom fontWeight="bold" align="center">
-          Top 5 Phones from {brand || "..."}
+        <Typography variant="h5" gutterBottom fontWeight="bold" align="center">
+          Top 5 Phones from {formattedBrand || "Unknown"}
         </Typography>
 
         <Divider sx={{ mb: 3 }} />
 
-        {loading ? (
-          Array.from(new Array(3)).map((_, index) => (
-            <Skeleton
-              key={index}
-              variant="rectangular"
-              height={100}
-              sx={{ mb: 2 }}
-            />
-          ))
-        ) : (
+        {/* HATA VARSA GÖSTER */}
+        {error && (
+          <Box
+            sx={{
+              backgroundColor: "#ffebee",
+              color: "#c62828",
+              borderRadius: 2,
+              p: 2,
+              mb: 3,
+              textAlign: "center",
+            }}
+          >
+            <Typography variant="h6" fontWeight="bold">
+              Recognition Failed
+            </Typography>
+            <Typography variant="body1">{error}</Typography>
+
+            <Button
+              variant="outlined"
+              onClick={handleTryAgain}
+              sx={{ mt: 2, borderColor: "#c62828", color: "#c62828" }}
+            >
+              Try Again
+            </Button>
+          </Box>
+        )}
+
+        {/* YÜKLENİYORSA SKELETON */}
+        {loading && !error && (
+          <>
+            {Array.from(new Array(3)).map((_, index) => (
+              <Skeleton
+                key={index}
+                variant="rectangular"
+                height={100}
+                sx={{ mb: 2 }}
+              />
+            ))}
+          </>
+        )}
+
+        {/* VERİLER YÜKLENDİYSE */}
+        {!loading && !error && phones?.length > 0 && (
           <List>
             {phones.map((phone, index) => (
               <Paper key={index} sx={{ mb: 2, p: 2 }} elevation={3}>
