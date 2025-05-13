@@ -26,7 +26,7 @@ const RecognitionResultsPage = () => {
   const [loadingScreen, setLoadingScreen] = useState(true);
 
   useEffect(() => {
-    // Sayfa ilk açıldığında 2.5 saniye yükleme ekranı göster
+    // Sayfa ilk açıldığında 2.5 saniye yükleme ekranı göstercez
     const timeout = setTimeout(() => {
       setLoadingScreen(false);
     }, 2500);
@@ -72,17 +72,16 @@ const RecognitionResultsPage = () => {
 
   return (
     <Box sx={{ display: "flex", padding: 4 }}>
-      {/* SOL TARAF: GÖRSEL VE MARKA */}
       <Box sx={{ width: "30%", pr: 4 }}>
         <Typography variant="h5" gutterBottom fontWeight="bold">
-          Recognized Brand
+          Detected Brand
         </Typography>
 
         {loading ? (
           <Skeleton variant="text" width="80%" height={40} />
         ) : error ? (
           <Typography color="error" variant="h6">
-            Not Recognized
+            Brand Not Detected
           </Typography>
         ) : (
           <Typography variant="h6" sx={{ color: "#0a192f" }}>
@@ -102,15 +101,14 @@ const RecognitionResultsPage = () => {
         )}
       </Box>
 
-      {/* SAĞ TARAF: SONUÇLAR VE HATALAR */}
       <Box sx={{ flex: 1 }}>
         <Typography variant="h5" gutterBottom fontWeight="bold" align="center">
-          Top 5 Phones from {formattedBrand || "Unknown"}
+          Top 5 Recommended Phones by
+          {formattedBrand || "Unknown"}
         </Typography>
 
         <Divider sx={{ mb: 3 }} />
 
-        {/* HATA VARSA GÖSTER */}
         {error && (
           <Box
             sx={{
@@ -132,12 +130,11 @@ const RecognitionResultsPage = () => {
               onClick={handleTryAgain}
               sx={{ mt: 2, borderColor: "#c62828", color: "#c62828" }}
             >
-              Try Again
+              Try a Different Image
             </Button>
           </Box>
         )}
 
-        {/* YÜKLENİYORSA SKELETON */}
         {loading && !error && (
           <>
             {Array.from(new Array(3)).map((_, index) => (
@@ -151,7 +148,6 @@ const RecognitionResultsPage = () => {
           </>
         )}
 
-        {/* VERİLER YÜKLENDİYSE */}
         {!loading && !error && phones?.length > 0 && (
           <List>
             {phones.map((phone, index) => (

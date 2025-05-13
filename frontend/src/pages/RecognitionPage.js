@@ -58,7 +58,7 @@ function RecognitionPage() {
 
   const handleDelete = () => {
     setImagePreview(null);
-    setUploadedFile(null); // temizle
+    setUploadedFile(null);
     setActiveStep(0);
     if (fileInputRef.current) {
       fileInputRef.current.value = null;
@@ -151,7 +151,6 @@ function RecognitionPage() {
           ))}
         </Stepper>
 
-        {/* DRAG & DROP ALANI */}
         <Box
           onDrop={handleDrop}
           onDragOver={handleDragOver}
@@ -168,7 +167,7 @@ function RecognitionPage() {
           }}
         >
           <Typography variant="subtitle1" sx={{ mb: 2 }}>
-            You can drag and drop your backside of aphone image here
+            You can drag and drop your backside of a phone image here
           </Typography>
 
           <Button
@@ -195,7 +194,6 @@ function RecognitionPage() {
           </Button>
         </Box>
 
-        {/* LOADING */}
         {activeStep === 1 && (
           <Box textAlign="center">
             <CircularProgress
@@ -209,7 +207,6 @@ function RecognitionPage() {
           </Box>
         )}
 
-        {/* IMAGE PREVIEW & ACTIONS */}
         {imagePreview && activeStep === 2 && (
           <Box
             display="flex"

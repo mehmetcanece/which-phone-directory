@@ -15,7 +15,7 @@ function App() {
           {[
             { to: "/", label: "Home" },
             { to: "/filter-criteria", label: "Criteria-Based Selection" },
-            { to: "/recognition", label: "Brand Recognition" },
+            { to: "/recognition", label: "Image-Based Brand Recognition" },
           ].map(({ to, label }) => (
             <Button
               key={to}
