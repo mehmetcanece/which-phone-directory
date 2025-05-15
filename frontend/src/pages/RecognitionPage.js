@@ -169,7 +169,7 @@ function RecognitionPage() {
           }}
         >
           <Typography variant="subtitle1" sx={{ mb: 2 }}>
-            You can drag and drop your backside of a phone image here
+            Drag & drop a clear image of your phone’s back
           </Typography>
 
           <Button

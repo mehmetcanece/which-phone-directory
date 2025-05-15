@@ -56,17 +56,18 @@ const HomePage = () => {
           variant="body1"
           sx={{ fontSize: "1.1rem", mb: 2, color: "#000000" }}
         >
-          Navigate to the <strong>Criteria</strong> page to filter options based
-          on your preferences (such as screen size, memory, or price) and get
-          personalized recommendations.
+          Navigate to the <strong>Criteria-Based Selection</strong> page to
+          filter options based on your preferences (such as screen size, memory,
+          or price) and get personalized recommendations.
         </Typography>
         <Typography
           variant="body1"
           sx={{ fontSize: "1.1rem", mb: 4, color: "#000000" }}
         >
-          Alternatively, visit the <strong>Recognition</strong> page, upload a
-          photo of the smartphone's back side (showing the logo or branding),
-          and receive top recommendations based on the detected brand.
+          Alternatively, visit the{" "}
+          <strong>Image-Based Brand Recognition</strong> page, upload a photo of
+          the smartphone's back side (showing the logo or branding), and receive
+          top recommendations based on the detected brand.
         </Typography>
         <Divider sx={{ width: "100%", my: 4, bgcolor: "#999" }} />
         <Typography
