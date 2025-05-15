@@ -104,7 +104,7 @@ const RecognitionResultsPage = () => {
       <Box sx={{ flex: 1 }}>
         <Typography variant="h5" gutterBottom fontWeight="bold" align="center">
           Top 5 Recommended Phones by
-          {formattedBrand || "Unknown"}
+          {formattedBrand || " Unknown"}
         </Typography>
 
         <Divider sx={{ mb: 3 }} />
@@ -130,7 +130,7 @@ const RecognitionResultsPage = () => {
               onClick={handleTryAgain}
               sx={{ mt: 2, borderColor: "#c62828", color: "#c62828" }}
             >
-              Try a Different Image
+              Upload Another Image
             </Button>
           </Box>
         )}

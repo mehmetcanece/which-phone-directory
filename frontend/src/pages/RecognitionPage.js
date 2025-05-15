@@ -108,7 +108,8 @@ function RecognitionPage() {
     } catch (err) {
       navigate("/recognition/result", {
         state: {
-          error: "Unexpected error occurred",
+          error:
+            "We couldn’t recognize the phone brand from the image you uploaded. This might be due to unclear logo, poor lighting, or image quality issues.",
           image: imagePreview,
         },
       });
