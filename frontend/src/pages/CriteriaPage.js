@@ -59,10 +59,14 @@ function CriteriaPage() {
       internal_memory: useInternalMemory
         ? [internalMemory, internalMemory]
         : null,
-      screen_size: useScreenSize ? [screenSize, 7.5] : null,
-      cpu_benchmark: useMinCpu ? [minCpu, 11000] : null,
+      screen_size: useScreenSize
+        ? [screenSize, filterOptions?.screen_size_range?.max || 8.0]
+        : null,
+      cpu_benchmark: useMinCpu
+        ? [minCpu, filterOptions?.cpu_benchmark_range?.max || 12000]
+        : null,
       avg_rating: useMinRating ? [minRating, 10] : null,
-      camera_quality: useCameraQuality ? [cameraQuality, 108] : null,
+      camera_quality: useCameraQuality ? [cameraQuality, 200] : null,
       weight: useMaxWeight ? [0, maxWeight] : null,
     };
 
@@ -111,7 +115,7 @@ function CriteriaPage() {
         fontWeight="bold"
         color="#0a192f"
       >
-        Select Your Phone Preferences
+        Set Your Phone Preferences
       </Typography>
 
       <Typography variant="h5" sx={{ mt: 4 }} fontWeight="medium">

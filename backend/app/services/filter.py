@@ -71,5 +71,5 @@ def get_filter_options():
         "cpu_benchmark_range": get_range("cpu_benchmark"),
         "avg_rating_range": get_range("avg_rating"),
         "camera_quality_options": get_unique("camera_quality"),
-        "weight_range": get_range("weight")
+        "weight_range": get_range("weight"),
     }

@@ -104,7 +104,7 @@ const RecognitionResultsPage = () => {
       <Box sx={{ flex: 1 }}>
         <Typography variant="h5" gutterBottom fontWeight="bold" align="center">
           Top 5 Recommended Phones by
-          {formattedBrand || " Unknown"}
+          {" " + formattedBrand || " Unknown"}
         </Typography>
 
         <Divider sx={{ mb: 3 }} />
