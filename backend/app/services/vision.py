@@ -2,7 +2,7 @@ import json
 import os
 from typing import List, Dict
 
-# Dinamik yol çözümü
+#pathleri dinamikleştirdim
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PHONES_PATH = os.path.join(BASE_DIR, "../data/phones.json")
 PHONES_PATH = os.path.abspath(PHONES_PATH)

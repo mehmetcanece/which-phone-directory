@@ -6,7 +6,11 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
 
-app = FastAPI(title="Which Phone Backend")
+app = FastAPI(
+    title="Which Phone API",
+    description="Brand recognition and phone recommendation backend",
+    version="1.0.0" 
+)
 
 # CORS ayarı react için localhost:3000'e izin verir
 app.add_middleware(

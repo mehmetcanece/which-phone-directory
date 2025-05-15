@@ -1,6 +1,6 @@
 import os
 
-# Eski ID → Yeni ID eşlemesi
+
 id_map = {
     15: 0,  # apple
     16: 1,  # asus

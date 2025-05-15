@@ -4,6 +4,7 @@ import {
   Typography,
   Grid,
   Button,
+  Divider,
   Slider,
   FormControl,
   InputLabel,
@@ -58,10 +59,14 @@ function CriteriaPage() {
       internal_memory: useInternalMemory
         ? [internalMemory, internalMemory]
         : null,
-      screen_size: useScreenSize ? [screenSize, 7.5] : null,
-      cpu_benchmark: useMinCpu ? [minCpu, 11000] : null,
+      screen_size: useScreenSize
+        ? [screenSize, filterOptions?.screen_size_range?.max || 8.0]
+        : null,
+      cpu_benchmark: useMinCpu
+        ? [minCpu, filterOptions?.cpu_benchmark_range?.max || 12000]
+        : null,
       avg_rating: useMinRating ? [minRating, 10] : null,
-      camera_quality: useCameraQuality ? [cameraQuality, 108] : null,
+      camera_quality: useCameraQuality ? [cameraQuality, 200] : null,
       weight: useMaxWeight ? [0, maxWeight] : null,
     };
 
@@ -110,7 +115,7 @@ function CriteriaPage() {
         fontWeight="bold"
         color="#0a192f"
       >
-        Select Your Phone Preferences
+        Set Your Phone Preferences
       </Typography>
 
       <Typography variant="h5" sx={{ mt: 4 }} fontWeight="medium">
@@ -396,6 +401,23 @@ function CriteriaPage() {
         >
           Show Recommended Phones
         </Button>
+      </Box>
+      <Divider sx={{ width: "100%", my: 4, bgcolor: "#999" }} />
+
+      <Box sx={{ mt: 4, textAlign: "center" }}>
+        <Box
+          component="img"
+          src="images/bau.png"
+          alt="Bahçeşehir University"
+          sx={{
+            width: 120,
+            height: "auto",
+            mb: 1,
+          }}
+        />
+        <Typography variant="body2" color="text.secondary">
+          Bahçeşehir University - 2025
+        </Typography>
       </Box>
     </Box>
   );

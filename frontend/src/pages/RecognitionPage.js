@@ -6,6 +6,7 @@ import {
   Stepper,
   Step,
   StepLabel,
+  Divider,
   Tooltip,
   IconButton,
   CircularProgress,
@@ -107,7 +108,8 @@ function RecognitionPage() {
     } catch (err) {
       navigate("/recognition/result", {
         state: {
-          error: "Unexpected error occurred",
+          error:
+            "We couldn’t recognize the phone brand from the image you uploaded. This might be due to unclear logo, poor lighting, or image quality issues.",
           image: imagePreview,
         },
       });
@@ -167,7 +169,7 @@ function RecognitionPage() {
           }}
         >
           <Typography variant="subtitle1" sx={{ mb: 2 }}>
-            You can drag and drop your backside of a phone image here
+            Drag & drop a clear image of your phone’s back
           </Typography>
 
           <Button
@@ -253,6 +255,23 @@ function RecognitionPage() {
             </Tooltip>
           </Box>
         )}
+        <Divider sx={{ width: "100%", my: 4, bgcolor: "#999" }} />
+
+        <Box sx={{ mt: 4, textAlign: "center" }}>
+          <Box
+            component="img"
+            src="images/bau.png"
+            alt="Bahçeşehir University"
+            sx={{
+              width: 120,
+              height: "auto",
+              mb: 1,
+            }}
+          />
+          <Typography variant="body2" color="text.secondary">
+            Bahçeşehir University - 2025
+          </Typography>
+        </Box>
       </Box>
     </Box>
   );

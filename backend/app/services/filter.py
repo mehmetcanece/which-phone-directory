@@ -4,7 +4,7 @@ from typing import List
 from backend.app.models.phone_model import Phone
 from backend.app.models.request_models import PhoneFilterRequest
 
-# 📍 Güvenli dosya yolu çözümü
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PHONES_PATH = os.path.join(BASE_DIR, "../data/phones.json")
 
@@ -71,5 +71,5 @@ def get_filter_options():
         "cpu_benchmark_range": get_range("cpu_benchmark"),
         "avg_rating_range": get_range("avg_rating"),
         "camera_quality_options": get_unique("camera_quality"),
-        "weight_range": get_range("weight")
+        "weight_range": get_range("weight"),
     }
