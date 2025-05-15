@@ -13,7 +13,7 @@ async def upload_phone_image(image: UploadFile = File(...)):
     if not image.content_type.startswith("image/"):
         raise HTTPException(status_code=400, detail="Invalid file type. Please upload an image.")
     
-    # Geçici dosya adı oluştur
+    # Geçici dosya adı oluşturdum
     temp_dir = "temp_uploads"
     os.makedirs(temp_dir, exist_ok=True)
     temp_path = os.path.join(temp_dir, f"{uuid.uuid4()}.jpg")  # uuid ile unique ad üretiyorum

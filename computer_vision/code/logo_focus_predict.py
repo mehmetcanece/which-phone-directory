@@ -6,7 +6,7 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing import image
 from ultralytics import YOLO
 
-# Dinamik yol çözümü
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 YOLO_MODEL_PATH = os.path.abspath(os.path.join(BASE_DIR, "../../runs/detect/train4/weights/best.pt"))
 EFFNET_MODEL_PATH = os.path.abspath(os.path.join(BASE_DIR, "phone_brand_classifier_efficientnet_v2.h5"))
