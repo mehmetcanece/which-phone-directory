@@ -1,0 +1,5 @@
+	•	The avg_rating column contained values equal to 0.0, which were interpreted as missing or invalid data.
+	•	These values were imputed using the median of the entire column in order to ensure statistical consistency while minimizing the influence of potential outliers, in line with common practices in data preprocessing literature.
+	•	Subsequently, Min-Max normalization was applied to rescale all values within the [0, 1] range.
+	•	This normalization technique was selected due to the relatively balanced distribution of the data and the absence of extreme outliers, which aligns with recommendations in data normalization methodologies for preserving the relative relationships among values.
+	. En son 10la çarpıp virgülden sonra 2 hanesini aldırıyorum.
