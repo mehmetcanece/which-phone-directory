@@ -13,22 +13,21 @@ async def upload_phone_image(image: UploadFile = File(...)):
     if not image.content_type.startswith("image/"):
         raise HTTPException(status_code=400, detail="Invalid file type. Please upload an image.")
     
-    # Geçici dosya adı oluşturdum
+    # Geçici dosya oluştur
     temp_dir = "temp_uploads"
     os.makedirs(temp_dir, exist_ok=True)
-    temp_path = os.path.join(temp_dir, f"{uuid.uuid4()}.jpg")  # uuid ile unique ad üretiyorum
+    temp_path = os.path.join(temp_dir, f"{uuid.uuid4()}.jpg")
 
     with open(temp_path, "wb") as buffer:
         shutil.copyfileobj(image.file, buffer)
 
     try:
         result = predict_phone_brand(temp_path)
-
-        if result["confidence"] > 40.0:
+        if result:
             return {
-                "predicted_brand": result["brand"],
-                "source": result["source"],
-                "confidence": result["confidence"]
+                "predicted_brand": str(result.get("brand")),
+                "source": str(result.get("source")),
+                "confidence": float(result.get("confidence", 0.0))  # float 32 hatasını önlemek için 0.0
             }
         else:
             raise HTTPException(
