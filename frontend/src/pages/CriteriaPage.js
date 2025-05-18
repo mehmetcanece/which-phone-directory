@@ -4,6 +4,7 @@ import {
   Typography,
   Grid,
   Button,
+  Divider,
   Slider,
   FormControl,
   InputLabel,
@@ -26,15 +27,15 @@ function CriteriaPage() {
   const [maxWeight, setMaxWeight] = useState(170);
   const [filterOptions, setFilterOptions] = useState(null);
 
-  const[useMaxPrice, setUseMaxPrice] = React.useState(false);
-  const[useMinRating, setUseMinRating] = React.useState(false);
-  const[useMinCpu, setUseMinCpu] = React.useState(false);
-  const[useMinBattery,setUseMinBattery] = React.useState(false);
-  const[useRam,setUseRam] = React.useState(false);
-  const[useInternalMemory,setUseInternalMemory] = React.useState(false);
-  const[useScreenSize,setUseScreenSize] = React.useState(false);
-  const[useMaxWeight,setUseMaxWeight] = React.useState(false);
-  const[useCameraQuality,setUseCameraQuality] = React.useState(false);
+  const [useMaxPrice, setUseMaxPrice] = useState(false);
+  const [useMinRating, setUseMinRating] = useState(false);
+  const [useMinCpu, setUseMinCpu] = useState(false);
+  const [useMinBattery, setUseMinBattery] = useState(false);
+  const [useRam, setUseRam] = useState(false);
+  const [useInternalMemory, setUseInternalMemory] = useState(false);
+  const [useScreenSize, setUseScreenSize] = useState(false);
+  const [useMaxWeight, setUseMaxWeight] = useState(false);
+  const [useCameraQuality, setUseCameraQuality] = useState(false);
 
   const navigate = useNavigate();
 
@@ -43,25 +44,30 @@ function CriteriaPage() {
       .then((res) => res.json())
       .then((data) => {
         setFilterOptions(data);
-        console.log("Filtre opsiyonları:", data);
       })
       .catch((err) => {
-        console.error("Filtre verisi alınamadı:", err);
+        console.error("Failed to fetch filter options:", err);
       });
   }, []);
 
   const handleSubmit = async () => {
     const criteria = {
       brand_name: null,
-      price: [0, maxPrice],
-      battery_capacity: [minBattery, 6000],
-      ram_capacity: ram ? [ram, ram] : null,
-      internal_memory: internalMemory ? [internalMemory, internalMemory] : null,
-      screen_size: [screenSize, 7.5],
-      cpu_benchmark: [minCpu, 11000],
-      avg_rating: [minRating, 10],
-      camera_quality: cameraQuality ? [cameraQuality, 108] : null,
-      weight: maxWeight ? [0, maxWeight] : null,
+      price: useMaxPrice ? [0, maxPrice] : null,
+      battery_capacity: useMinBattery ? [minBattery, 6000] : null,
+      ram_capacity: useRam ? [ram, ram] : null,
+      internal_memory: useInternalMemory
+        ? [internalMemory, internalMemory]
+        : null,
+      screen_size: useScreenSize
+        ? [screenSize, filterOptions?.screen_size_range?.max || 8.0]
+        : null,
+      cpu_benchmark: useMinCpu
+        ? [minCpu, filterOptions?.cpu_benchmark_range?.max || 12000]
+        : null,
+      avg_rating: useMinRating ? [minRating, 10] : null,
+      camera_quality: useCameraQuality ? [cameraQuality, 200] : null,
+      weight: useMaxWeight ? [0, maxWeight] : null,
     };
 
     try {
@@ -75,215 +81,343 @@ function CriteriaPage() {
       );
 
       const data = await response.json();
-      console.log("Gelen telefonlar:", data.top_5_phones);
       navigate("/filter-criteria/result", { state: data.top_5_phones });
     } catch (error) {
-      console.error("API Hatası:", error);
-      alert("Sunucuya bağlanırken hata oluştu.");
+      console.error("API Error:", error);
+      alert("An error occurred while connecting to the server.");
     }
+  };
+
+  const disableWrap = (enabled, children) => (
+    <Box
+      sx={{
+        opacity: enabled ? 1 : 0.5,
+        pointerEvents: enabled ? "auto" : "none",
+      }}
+    >
+      {children}
+    </Box>
+  );
+
+  const checkboxStyle = { "&.Mui-checked": { color: "#0a192f" } };
+  const sliderStyle = { color: "#0a192f" };
+  const buttonStyle = {
+    backgroundColor: "#0a192f",
+    "&:hover": { backgroundColor: "#06101e" },
   };
 
   return (
     <Box p={3}>
-      <Typography variant="h4" gutterBottom textAlign="center">
-        Enter Your Preferred Phone Criteria
+      <Typography
+        variant="h4"
+        gutterBottom
+        align="center"
+        fontWeight="bold"
+        color="#0a192f"
+      >
+        Set Your Phone Preferences
       </Typography>
 
-      {/* Performance */}
-      <Typography variant="h5" sx={{ mt: 3 }}>
-        Performance
-      </Typography>
-      <Grid container spacing={2}>
-        <Grid item xs={12} sm={6}>
-            <FormControlLabel
-            control={<Checkbox checked={useMaxPrice} onChange={(e) => setUseMaxPrice(e.target.checked)} sx={{'&.Mui-checked':{color:"#0a192f"},}} />}
-             />
-          <Typography gutterBottom>Maximum Price (₺)</Typography>
-          <Slider
-            value={maxPrice}
-            onChange={(e, val) => setMaxPrice(val)}
-            min={filterOptions?.price_range?.min || 1000}
-            max={filterOptions?.price_range?.max || 100000}
-            step={1000}
-            valueLabelDisplay="auto"
-            sx={{color:"#0a192f"}}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-            <FormControlLabel
-            control={<Checkbox checked={useMinRating} onChange={(e) => setUseMinRating(e.target.checked)} sx={{'&.Mui-checked':{color:"#0a192f"},}} />}
-            />
-            
-          <Typography gutterBottom>Minimum Average Rating</Typography>
-          <Slider
-            value={minRating}
-            onChange={(e, val) => setMinRating(val)}
-            min={filterOptions?.avg_rating_range?.min || 1}
-            max={filterOptions?.avg_rating_range?.max || 10}
-            step={0.1}
-            valueLabelDisplay="auto"
-            sx={{color:"#0a192f"}}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-            <FormControlLabel
-            control={<Checkbox checked={useMinCpu} onChange={(e) => setUseMinCpu(e.target.checked)} sx={{'&.Mui-checked':{color:"#0a192f"},}} />}
-            />
-          <Typography gutterBottom>Minimum CPU Benchmark</Typography>
-          <Slider
-            value={minCpu}
-            onChange={(e, val) => setMinCpu(val)}
-            min={filterOptions?.cpu_benchmark_range?.min || 1000}
-            max={filterOptions?.cpu_benchmark_range?.max || 11000}
-            step={500}
-            valueLabelDisplay="auto"
-            sx={{color:"#0a192f"}}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-            <FormControlLabel
-            control={<Checkbox checked={useMinBattery} onChange={(e) => setUseMinBattery(e.target.checked)} sx={{'&.Mui-checked':{color:"#0a192f"},}} />}
-            />
-          <Typography gutterBottom>Minimum Battery Capacity (mAh)</Typography>
-          <Slider
-            value={minBattery}
-            onChange={(e, val) => setMinBattery(val)}
-            min={filterOptions?.battery_range?.min || 2000}
-            max={filterOptions?.battery_range?.max || 6000}
-            step={100}
-            valueLabelDisplay="auto"
-            sx={{color:"#0a192f"}}
-          />
-        </Grid>
-        </Grid>
-
-      {/* Storage */}
-      <Typography variant="h5" sx={{ mt: 4 }}>
-        Storage
+      <Typography variant="h5" sx={{ mt: 4 }} fontWeight="medium">
+        Performance Filters
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
-            <FormControlLabel
-            control={<Checkbox checked={useRam} onChange={(e) => setUseRam(e.target.checked)} sx={{'&.Mui-checked':{color:"#0a192f"},}} />}
-            />
-          <FormControl fullWidth sx={{ minWidth:200, mb: 2 }}>
-            <InputLabel id="ram-select-label">RAM (GB)</InputLabel>
-            <Select
-              labelId="ram-select-label"
-              value={ram}
-              label="RAM (GB)"
-              onChange={(e) => setRam(Number(e.target.value))}
-            >
-              {filterOptions?.ram_options?.map((option) => (
-                <MenuItem key={option} value={option}>
-                  {option} GB
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={useMaxPrice}
+                onChange={(e) => setUseMaxPrice(e.target.checked)}
+                sx={checkboxStyle}
+              />
+            }
+            label="Filter by Maximum Price"
+          />
+          {disableWrap(
+            useMaxPrice,
+            <>
+              <Typography gutterBottom>Maximum Price (₺)</Typography>
+              <Slider
+                value={maxPrice}
+                onChange={(e, val) => setMaxPrice(val)}
+                min={filterOptions?.price_range?.min || 1000}
+                max={filterOptions?.price_range?.max || 100000}
+                step={1000}
+                valueLabelDisplay="auto"
+                sx={sliderStyle}
+              />
+            </>
+          )}
         </Grid>
 
         <Grid item xs={12} sm={6}>
-            <FormControlLabel
-            control={<Checkbox checked={useInternalMemory} onChange={(e) => setUseInternalMemory(e.target.checked)} sx={{'&.Mui-checked':{color:"#0a192f"},}} />}
-            />
-          <FormControl fullWidth sx={{minWidth:200}}>
-            <InputLabel id="memory-select-label">
-              Internal Memory (GB)
-            </InputLabel>
-            <Select
-              labelId="memory-select-label"
-              value={internalMemory}
-              label="Internal Memory (GB)"
-              onChange={(e) => setInternalMemory(Number(e.target.value))}
-            >
-              {filterOptions?.internal_memory_options?.map((option) => (
-                <MenuItem key={option} value={option}>
-                  {option} GB
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={useMinRating}
+                onChange={(e) => setUseMinRating(e.target.checked)}
+                sx={checkboxStyle}
+              />
+            }
+            label="Filter by Minimum Rating"
+          />
+          {disableWrap(
+            useMinRating,
+            <>
+              <Typography gutterBottom>Minimum Average Rating</Typography>
+              <Slider
+                value={minRating}
+                onChange={(e, val) => setMinRating(val)}
+                min={filterOptions?.avg_rating_range?.min || 1}
+                max={filterOptions?.avg_rating_range?.max || 10}
+                step={0.1}
+                valueLabelDisplay="auto"
+                sx={sliderStyle}
+              />
+            </>
+          )}
+        </Grid>
+
+        <Grid item xs={12} sm={6}>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={useMinCpu}
+                onChange={(e) => setUseMinCpu(e.target.checked)}
+                sx={checkboxStyle}
+              />
+            }
+            label="Filter by Minimum CPU Benchmark"
+          />
+          {disableWrap(
+            useMinCpu,
+            <>
+              <Typography gutterBottom>Minimum CPU Benchmark</Typography>
+              <Slider
+                value={minCpu}
+                onChange={(e, val) => setMinCpu(val)}
+                min={filterOptions?.cpu_benchmark_range?.min || 1000}
+                max={filterOptions?.cpu_benchmark_range?.max || 11000}
+                step={500}
+                valueLabelDisplay="auto"
+                sx={sliderStyle}
+              />
+            </>
+          )}
+        </Grid>
+
+        <Grid item xs={12} sm={6}>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={useMinBattery}
+                onChange={(e) => setUseMinBattery(e.target.checked)}
+                sx={checkboxStyle}
+              />
+            }
+            label="Filter by Minimum Battery Capacity"
+          />
+          {disableWrap(
+            useMinBattery,
+            <>
+              <Typography gutterBottom>
+                Minimum Battery Capacity (mAh)
+              </Typography>
+              <Slider
+                value={minBattery}
+                onChange={(e, val) => setMinBattery(val)}
+                min={filterOptions?.battery_range?.min || 2000}
+                max={filterOptions?.battery_range?.max || 6000}
+                step={100}
+                valueLabelDisplay="auto"
+                sx={sliderStyle}
+              />
+            </>
+          )}
         </Grid>
       </Grid>
 
-      {/* Display */}
-      <Typography variant="h5" sx={{ mt: 4 }}>
-        Display
+      <Typography variant="h5" sx={{ mt: 4 }} fontWeight="medium">
+        Storage & Display
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
-            <FormControlLabel
-            control={<Checkbox checked={useScreenSize} onChange={(e) => setUseScreenSize(e.target.checked)} sx={{'&.Mui-checked':{color:"#0a192f"},}} />}
-            />
-          <Typography gutterBottom>Minimum Screen Size (inches)</Typography>
-          <Slider
-            value={screenSize}
-            onChange={(e, val) => setScreenSize(val)}
-            min={filterOptions?.screen_size_range?.min || 5.0}
-            max={filterOptions?.screen_size_range?.max || 7.5}
-            step={0.1}
-            valueLabelDisplay="auto"
-            sx={{color:"#0a192f"}}
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={useRam}
+                onChange={(e) => setUseRam(e.target.checked)}
+                sx={checkboxStyle}
+              />
+            }
+            label="Filter by RAM"
           />
+          {disableWrap(
+            useRam,
+            <FormControl fullWidth>
+              <InputLabel id="ram-label">RAM (GB)</InputLabel>
+              <Select
+                labelId="ram-label"
+                value={ram}
+                label="RAM"
+                onChange={(e) => setRam(Number(e.target.value))}
+              >
+                {filterOptions?.ram_options?.map((opt) => (
+                  <MenuItem key={opt} value={opt}>
+                    {opt} GB
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          )}
         </Grid>
+
         <Grid item xs={12} sm={6}>
-            <FormControlLabel
-            control={<Checkbox checked={useMaxWeight} onChange={(e) => setUseMaxWeight(e.target.checked)} sx={{'&.Mui-checked':{color:"#0a192f"},}}/>}
-            />
-          <Typography gutterBottom>Max Weight (gr)</Typography>
-          <Slider
-            value={maxWeight}
-            onChange={(e, val) => setMaxWeight(val)}
-            min={filterOptions?.weight_range?.min || 150}
-            max={filterOptions?.weight_range?.max || 300}
-            step={1}
-            valueLabelDisplay="auto"
-            sx={{color:"#0a192f"}}
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={useInternalMemory}
+                onChange={(e) => setUseInternalMemory(e.target.checked)}
+                sx={checkboxStyle}
+              />
+            }
+            label="Filter by Internal Storage"
           />
+          {disableWrap(
+            useInternalMemory,
+            <FormControl fullWidth>
+              <InputLabel id="storage-label">Storage (GB)</InputLabel>
+              <Select
+                labelId="storage-label"
+                value={internalMemory}
+                label="Storage"
+                onChange={(e) => setInternalMemory(Number(e.target.value))}
+              >
+                {filterOptions?.internal_memory_options?.map((opt) => (
+                  <MenuItem key={opt} value={opt}>
+                    {opt} GB
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          )}
+        </Grid>
+
+        <Grid item xs={12} sm={6}>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={useScreenSize}
+                onChange={(e) => setUseScreenSize(e.target.checked)}
+                sx={checkboxStyle}
+              />
+            }
+            label="Filter by Minimum Screen Size"
+          />
+          {disableWrap(
+            useScreenSize,
+            <>
+              <Typography gutterBottom>Minimum Screen Size (inches)</Typography>
+              <Slider
+                value={screenSize}
+                onChange={(e, val) => setScreenSize(val)}
+                min={filterOptions?.screen_size_range?.min || 5.0}
+                max={filterOptions?.screen_size_range?.max || 7.5}
+                step={0.1}
+                valueLabelDisplay="auto"
+                sx={sliderStyle}
+              />
+            </>
+          )}
+        </Grid>
+
+        <Grid item xs={12} sm={6}>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={useMaxWeight}
+                onChange={(e) => setUseMaxWeight(e.target.checked)}
+                sx={checkboxStyle}
+              />
+            }
+            label="Filter by Maximum Weight"
+          />
+          {disableWrap(
+            useMaxWeight,
+            <>
+              <Typography gutterBottom>Maximum Weight (g)</Typography>
+              <Slider
+                value={maxWeight}
+                onChange={(e, val) => setMaxWeight(val)}
+                min={filterOptions?.weight_range?.min || 100}
+                max={filterOptions?.weight_range?.max || 300}
+                step={1}
+                valueLabelDisplay="auto"
+                sx={sliderStyle}
+              />
+            </>
+          )}
+        </Grid>
+
+        <Grid item xs={12} sm={6}>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={useCameraQuality}
+                onChange={(e) => setUseCameraQuality(e.target.checked)}
+                sx={checkboxStyle}
+              />
+            }
+            label="Filter by Camera Quality"
+          />
+          {disableWrap(
+            useCameraQuality,
+            <FormControl fullWidth>
+              <InputLabel id="camera-label">Camera (MP)</InputLabel>
+              <Select
+                labelId="camera-label"
+                value={cameraQuality}
+                label="Camera Quality"
+                onChange={(e) => setCameraQuality(Number(e.target.value))}
+              >
+                {filterOptions?.camera_quality_options?.map((opt) => (
+                  <MenuItem key={opt} value={opt}>
+                    {opt} MP
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          )}
         </Grid>
       </Grid>
 
-      {/* Camera */}
-      <Typography variant="h5" sx={{ mt: 4 }}>
-        Camera
-      </Typography>
-      <Grid container spacing={2}>
-        <Grid item xs={12} sm={6}>
-            <FormControlLabel
-            control={<Checkbox checked={useCameraQuality} onChange={(e) => setUseCameraQuality(e.target.checked)} sx={{'&.Mui-checked':{color:"#0a192f"},}} />}
-            />
-          <FormControl fullWidth sx={{ minWidth:300, mb: 4 }}>
-            <InputLabel id="camera-select-label">
-              Camera Quality (MP)
-            </InputLabel>
-            <Select
-              labelId="camera-select-label"
-              value={cameraQuality}
-              label="Camera Quality (MP)"
-              onChange={(e) => setCameraQuality(Number(e.target.value))}
-            >
-              {filterOptions?.camera_quality_options?.map((mp) => (
-                <MenuItem key={mp} value={mp}>
-                  {mp} MP
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        </Grid>
-      </Grid>
-
-      {/* Submit */}
       <Box mt={5}>
         <Button
           variant="contained"
-          sx={{backgroundColor:"#0a192f"}}
           fullWidth
           size="large"
           onClick={handleSubmit}
+          sx={buttonStyle}
         >
           Show Recommended Phones
         </Button>
+      </Box>
+      <Divider sx={{ width: "100%", my: 4, bgcolor: "#999" }} />
+
+      <Box sx={{ mt: 4, textAlign: "center" }}>
+        <Box
+          component="img"
+          src="images/bau.png"
+          alt="Bahçeşehir University"
+          sx={{
+            width: 120,
+            height: "auto",
+            mb: 1,
+          }}
+        />
+        <Typography variant="body2" color="text.secondary">
+          Bahçeşehir University - 2025
+        </Typography>
       </Box>
     </Box>
   );

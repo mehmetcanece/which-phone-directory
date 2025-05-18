@@ -1,6 +1,6 @@
 import os
 
-# Eski ID → Yeni ID eşlemesi
+
 id_map = {
     15: 0,  # apple
     16: 1,  # asus
@@ -13,7 +13,7 @@ id_map = {
     23: 8   # xiaomi
 }
 
-labels_dir = "C:/Users/Ercan Bican/which-phone-directory/yolo_logos/labels/train"
+labels_dir = "../yolo_logos/labels/train"
 
 for filename in os.listdir(labels_dir):
     if filename.endswith(".txt"):

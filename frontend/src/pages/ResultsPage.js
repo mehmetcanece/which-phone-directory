@@ -1,6 +1,5 @@
 import React from "react";
 import ThumbUpOffAltRoundedIcon from "@mui/icons-material/ThumbUpOffAltRounded";
-import MonetizationOnRoundedIcon from "@mui/icons-material/MonetizationOnRounded";
 import MilitaryTechRoundedIcon from "@mui/icons-material/MilitaryTechRounded";
 import SellTwoToneIcon from "@mui/icons-material/SellTwoTone";
 import {
