@@ -1,11 +1,8 @@
-# FastAPI backend
 fastapi
 uvicorn
 pydantic
 python-multipart
 requests
-
-# Computer Vision ve ML
 opencv-python
 torch
 torchvision
@@ -14,13 +11,7 @@ matplotlib
 Pillow
 scikit-learn
 ultralytics
-
-# Eğer TensorFlow kullanıyorsan (eklemeyi unutma)
 tensorflow
-
-# Eğer yol algılamada YOLO, keras veya model yükleme varsa
 keras
 onnxruntime
-
-# Ortam değişkenleri için
 python-dotenv

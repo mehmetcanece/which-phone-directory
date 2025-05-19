@@ -28,11 +28,11 @@ for filename in os.listdir(labels_dir):
                 continue
             try:
                 old_class_id = int(parts[0])
-                parts[0] = str(id_map.get(old_class_id, old_class_id))  # Eğer map'te yoksa olduğu gibi bırak
+                parts[0] = str(id_map.get(old_class_id, old_class_id))  
                 new_lines.append(" ".join(parts) + "\n")
             except ValueError:
                 print(f"⚠️ Hatalı satır atlandı: {line.strip()}")
-                new_lines.append(line)  # hatalıysa orijinal haliyle bırak
+                new_lines.append(line)  
 
         with open(file_path, "w") as file:
             file.writelines(new_lines)

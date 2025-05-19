@@ -5,9 +5,9 @@ from PIL import Image
 import shutil
 from PIL import ImageOps
 
-AUGMENTED_IMAGES_PER_IMAGE = 3  # change multiply value accordingly
-LOW_DATASET_DIR = "../Phone_Images/asus"    # change folder accordingly
-OUTPUT_DIR = "../Phone_Images/asus_augmented"  # change output folder accordingly
+AUGMENTED_IMAGES_PER_IMAGE = 3  
+LOW_DATASET_DIR = "../Phone_Images/asus"    
+OUTPUT_DIR = "../Phone_Images/asus_augmented"  
 
 datagen = ImageDataGenerator(
     rotation_range=10,
