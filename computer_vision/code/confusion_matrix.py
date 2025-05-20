@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 
+#load the desired model
 model = tf.keras.models.load_model("phone_brand_classifier_efficientnet_v2.h5")
 
 validation_dataset = tf.keras.utils.image_dataset_from_directory(

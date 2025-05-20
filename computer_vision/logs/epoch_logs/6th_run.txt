@@ -23,6 +23,7 @@ Epoch 10/20
 64/64 ━━━━━━━━━━━━━━━━━━━━ 142s 2s/step - accuracy: 0.9985 - loss: 0.0825 - val_accuracy: 0.9745 - val_loss: 0.1454
 Epoch 11/20
 64/64 ━━━━━━━━━━━━━━━━━━━━ 140s 2s/step - accuracy: 0.9949 - loss: 0.0801 - val_accuracy: 0.9882 - val_loss: 0.0811
+Epoch 12/20
 64/64 ━━━━━━━━━━━━━━━━━━━━ 139s 2s/step - accuracy: 0.9960 - loss: 0.0653 - val_accuracy: 0.9843 - val_loss: 0.1248
 Epoch 13/20
 64/64 ━━━━━━━━━━━━━━━━━━━━ 139s 2s/step - accuracy: 0.9952 - loss: 0.0684 - val_accuracy: 0.9725 - val_loss: 0.1214
