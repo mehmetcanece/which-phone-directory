@@ -1,15 +1,10 @@
-import os
 import json
 from typing import List
-from backend.app.models.phone_model import Phone
-from backend.app.models.request_models import PhoneFilterRequest
-
-
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-PHONES_PATH = os.path.join(BASE_DIR, "../data/phones.json")
+from app.models.phone_model import Phone
+from app.models.request_models import PhoneFilterRequest
 
 def filter_phones(filters: PhoneFilterRequest) -> List[dict]:
-    with open(PHONES_PATH, "r") as f:
+    with open("app/data/phones.json") as f:
         data = json.load(f)
 
     phones = [Phone(**item) for item in data]
@@ -43,11 +38,11 @@ def filter_phones(filters: PhoneFilterRequest) -> List[dict]:
             continue
         result.append(phone)
 
-    sorted_result = sorted(result, key=lambda p: p.ranking or 0)
+    sorted_result = sorted(result, key=lambda p: p.ranking or 0, reverse=False)
     return [p.dict() for p in sorted_result[:5]]
 
 def get_filter_options():
-    with open(PHONES_PATH, "r") as f:
+    with open("app/data/phones.json") as f:
         data = json.load(f)
 
     phones = [Phone(**item) for item in data]
@@ -71,5 +66,5 @@ def get_filter_options():
         "cpu_benchmark_range": get_range("cpu_benchmark"),
         "avg_rating_range": get_range("avg_rating"),
         "camera_quality_options": get_unique("camera_quality"),
-        "weight_range": get_range("weight"),
+        "weight_range": get_range("weight")
     }
