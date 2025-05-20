@@ -19,7 +19,6 @@ def predict_phone_brand(image_path: str, threshold: float = 80.0) -> dict | None
     if img is None:
         raise FileNotFoundError(f"Image not found: {image_path}")
 
-    # YOLO Tahmini
     print(" YOLO starting...")
     results = yolo_model.predict(source=image_path, conf=0.25, save=False, verbose=False)
     boxes = results[0].boxes
@@ -36,7 +35,6 @@ def predict_phone_brand(image_path: str, threshold: float = 80.0) -> dict | None
     else:
         print(" YOLO couldn't find a result.")
 
-    # EfficientNet Tahmini
     print(" EfficientNet starting...")
     resized_img = cv2.resize(img, (224, 224))
     img_array = image.img_to_array(resized_img)
@@ -48,10 +46,10 @@ def predict_phone_brand(image_path: str, threshold: float = 80.0) -> dict | None
     eff_brand = class_names[predicted_index]
     print(f" EfficientNet prediction: {eff_brand}, Confidence: {eff_confidence:.2f}%")
 
-    # RULE-BASED KARAR
     if yolo_confidence >= threshold and eff_confidence >= threshold:
         if yolo_brand == eff_brand:
             print("Both models agree with high confidence.")
+            print("Brand:", yolo_brand)
             return {
                 "source": "both_agree",
                 "brand": yolo_brand,
@@ -60,6 +58,7 @@ def predict_phone_brand(image_path: str, threshold: float = 80.0) -> dict | None
         else:
             if yolo_confidence > eff_confidence:
                 print("Conflict with high confidence, choosing YOLO.")
+                print("Brand:", yolo_brand)
                 return {
                     "source": "yolo_high_conf",
                     "brand": yolo_brand,
@@ -67,6 +66,7 @@ def predict_phone_brand(image_path: str, threshold: float = 80.0) -> dict | None
                 }
             else:
                 print("Conflict with high confidence, choosing EfficientNet.")
+                print("Brand:", eff_brand)
                 return {
                     "source": "eff_high_conf",
                     "brand": eff_brand,
@@ -75,6 +75,7 @@ def predict_phone_brand(image_path: str, threshold: float = 80.0) -> dict | None
 
     elif yolo_confidence >= threshold:
         print("Only YOLO has high confidence.")
+        print("Brand:", yolo_brand)
         return {
             "source": "yolo_only_confident",
             "brand": yolo_brand,
@@ -83,6 +84,7 @@ def predict_phone_brand(image_path: str, threshold: float = 80.0) -> dict | None
 
     elif eff_confidence >= threshold:
         print("Only EfficientNet has high confidence.")
+        print("Brand:", eff_brand)
         return {
             "source": "eff_only_confident",
             "brand": eff_brand,
