@@ -1,6 +1,1 @@
 node_modules
-venv/
-computer_vision/code/.venv/
-
-__pycache__/
-*.py[cod]
