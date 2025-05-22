@@ -26,7 +26,6 @@ const RecognitionResultsPage = () => {
   const [loadingScreen, setLoadingScreen] = useState(true);
 
   useEffect(() => {
-    // Sayfa ilk açıldığında 2.5 saniye yükleme ekranı göstercez
     const timeout = setTimeout(() => {
       setLoadingScreen(false);
     }, 2500);
@@ -48,7 +47,6 @@ const RecognitionResultsPage = () => {
   const formattedBrand =
     brand?.charAt(0).toUpperCase() + brand?.slice(1).toLowerCase();
 
-  // Eğer hala yükleme ekranı açık ise
   if (loadingScreen) {
     return (
       <Box

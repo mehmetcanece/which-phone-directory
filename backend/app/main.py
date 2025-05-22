@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware  # CORS import
+from fastapi.middleware.cors import CORSMiddleware  
 from backend.app.routers import home, recognition, filter_criteria
 import sys
 import os
@@ -12,10 +12,9 @@ app = FastAPI(
     version="1.0.0" 
 )
 
-# CORS ayarı react için localhost:3000'e izin verir
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # gerekirse * ile tüm hepsine izin veririz
+    allow_origins=["http://localhost:3000"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
